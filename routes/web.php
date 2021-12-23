@@ -27,8 +27,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/blog', function () {
-    return view('blog');
+Route::get('/login-form', function () {
+    return view('auth.login');
 });
 
 Route::get('/offer/{id}', 'PackageController@index');
@@ -40,3 +40,7 @@ Route::resource('test', 'TestController');
 Route::get('/admin/home', function () {
     return view('admin.index');
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

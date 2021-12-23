@@ -1,37 +1,58 @@
-require('./bootstrap');
-
-//login js
-// require('./login');
-
 /* ====================== *
  *  Toggle Between        *
  *  Sign Up / Login       *
  * ====================== */
-$(document).ready(function(){
-    $('#goRight').on('click', function(){
-      $('#slideBox').animate({
-        'marginLeft' : '0'
-      });
-      $('.topLayer').animate({
-        'marginLeft' : '100%'
-      });
+// $(document).ready(function(){
+//     $('#goRight').on('click', function(){
+//       $('#slideBox').animate({
+//         'marginLeft' : '0'
+//       });
+//       $('.topLayer').animate({
+//         'marginLeft' : '100%'
+//       });
+//     });
+//     $('#goLeft').on('click', function(){
+//       if (window.innerWidth > 769){
+//         $('#slideBox').animate({
+//           'marginLeft' : '50%'
+//         });
+//       }
+//       else {
+//         $('#slideBox').animate({
+//           'marginLeft' : '20%'
+//         });
+//       }
+//       $('.topLayer').animate({
+//         'marginLeft': '0'
+//       });
+//     });
+// });
+
+document.ready(function(){
+  document.querySelector('#goRight').addEventListener('click', function(){
+    document.querySelector('#slideBox').animate({
+      'marginLeft' : '0'
     });
-    $('#goLeft').on('click', function(){
-      if (window.innerWidth > 769){
-        $('#slideBox').animate({
-          'marginLeft' : '50%'
-        });
-      }
-      else {
-        $('#slideBox').animate({
-          'marginLeft' : '20%'
-        });
-      }
-      $('.topLayer').animate({
-        'marginLeft': '0'
-      });
+    document.querySelector('.topLayer').animate({
+      'marginLeft' : '100%'
     });
   });
+  document.querySelector('#goLeft').addEventListener('click', function(){
+    if (window.innerWidth > 769){
+      document.querySelector('#slideBox').animate({
+        'marginLeft' : '50%'
+      });
+    }
+    else {
+      document.querySelector('#slideBox').animate({
+        'marginLeft' : '20%'
+      });
+    }
+    document.querySelector('.topLayer').animate({
+      'marginLeft': '0'
+    });
+  });
+});
   
   /* ====================== *
    *  Initiate Canvas       *
@@ -168,4 +189,3 @@ $(document).ready(function(){
       shapeGroup.children[5].opacity = 1;
     }
   };
-
