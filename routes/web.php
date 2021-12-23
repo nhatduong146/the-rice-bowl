@@ -19,13 +19,9 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/menu', function () {
-    return view('menu');
-});
+Route::get('/menu', 'MenuController@index');
 
-Route::get('/service', function () {
-    return view('service');
-});
+Route::get('/service', 'ServiceController@getAllService');
 
 Route::get('/about', function () {
     return view('about');
@@ -33,4 +29,14 @@ Route::get('/about', function () {
 
 Route::get('/blog', function () {
     return view('blog');
+});
+
+Route::get('/offer/{id}', 'PackageController@index');
+
+Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
+
+Route::resource('test', 'TestController');
+
+Route::get('/admin/home', function () {
+    return view('admin.index');
 });

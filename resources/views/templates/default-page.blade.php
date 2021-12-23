@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="{{ asset('public/front-end/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css') }}">
+
+    @yield('css')
 </head>
 
 <body>

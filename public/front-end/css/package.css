@@ -1,0 +1,88 @@
+.inp {
+    /* border: 1px rgb(87, 83, 83);
+    border-radius: 10px; */
+}
+.form-control {
+    /* border-bottom: 5px black !important; */
+}
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+}
+
+.card {
+    border-radius: 20px !important;
+}
+
+.my-col {
+    margin-top: 30px;
+}
+
+.row lable {
+    font-size: 2em;
+}
+
+.btn-order {
+    width: 150%;
+    font: 1.2em sans-serif;
+    padding-top: 30px;
+    border: black;
+    border-radius: 50px !important;
+}
+
+.pricing-entry .text h3 span {
+    background: #fac564;
+    background: url(../images/food.png) no-repeat fixed;
+    padding-right: 20px;
+    color: black;
+}
+
+.pricing-entry .text .price {
+    margin-bottom: 10px;
+    color: rgb(100, 97, 97);
+    font-weight: 500;
+    background: #fac564;
+    background: url(../images/food.png) no-repeat fixed;
+    width: 100px;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+.total {
+    font-size: 1.4em !important;
+    font-weight: 800 !important;
+    color: rgb(82, 82, 80) !important;
+}
+
+h3 .total {
+    font-size: 1.2em !important;
+}
+
+.title_menu {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(206, 160, 77);
+    color: rgb(82, 82, 80);
+    font-weight: 600;
+    font-size: 1.6em;
+    margin-bottom: 30px;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+}
+
+.sel {
+    width: 200% !important;
+}
+
+.sel option {
+    background-color: black;
+    color: azure;
+}
+
+h3.title {
+    font-size: 1.5em !important;
+    font-weight: 800 !important;
+}
