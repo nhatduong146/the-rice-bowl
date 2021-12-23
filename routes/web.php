@@ -31,6 +31,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/blog', function () {
-    return view('blog');
+Route::get('/login-form', function () {
+    return view('auth.login');
 });
+
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

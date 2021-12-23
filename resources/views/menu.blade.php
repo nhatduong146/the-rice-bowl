@@ -9,7 +9,6 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center">
-
                     <div class="col-md-7 col-sm-12 text-center ftco-animate">
                         <h1 class="mb-3 mt-5 bread">Our Menu</h1>
                         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span>
@@ -36,7 +35,7 @@
             <div class="row no-gutters d-flex">
                 <div class="col-lg-4 d-flex ftco-animate">
                     <div class="services-wrap d-flex">
-                        <a href="#" class="img" style="background-image: url(images/pizza-1.jpg);"></a>
+                        <a href="#" class="img" style="background-image: url({{ asset('public/front-end/images/bg_3.jpg') }});"></a>
                         <div class="text p-4">
                             <h3>Italian Pizza</h3>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia
