@@ -319,6 +319,134 @@ p:hover {
   }
 }
 
+.customer-address,
+.paymentMethods,
+.prices {
+  background: #fac564;
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.text {
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.heading .link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  color: #0d5cb6;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.name::after {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: #e0e0e0;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.address {
+  font-size: 16px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.prices__items {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.prices__value--final {
+  color: #fe3834;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: right;
+}
+
+.prices__value--noted {
+  font-weight: 300;
+  font-style: normal;
+  display: block;
+  font-size: 12px;
+  color: #333333;
+}
+
+.cart__submit {
+  /* background: rgb(255, 66, 78); */
+  color: white;
+  padding: 13px 10px;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  display: block;
+  margin: 15px 0px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cart-total-prices {
+  font-size: 20px;
+}
+
+select {
+  /* Reset Select */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: #34495e;
+  background-image: none;
+  cursor: pointer;
+}
+
+.select-method {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+/* Arrow */
+
+.select-method::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.75em;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+
+.select-method:hover::after {
+  color: #f39c12;
+}
+
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

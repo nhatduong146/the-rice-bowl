@@ -17,9 +17,10 @@
                                 <span class="flaticon-diet"></span>
                             </div>
                             <div class="media-body">
-                                <a href="{{ URL::to('/offer/' . $service->id) }}">
+                                <a href="{{ URL::to('/service/' . $service->id) }}">
                                     <h3 class="heading">{{ $service->name }}</h3>
                                 </a>
+                                
                                 <p>{{ $service->detail }}</p>
                             </div>
                         </div>
