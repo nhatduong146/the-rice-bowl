@@ -2,18 +2,56 @@
 
 namespace App\Http\Controllers;
 
-use App\Criteria;
-use App\Food;
-use App\Menu;
-use App\MenuFood;
-use App\Package;
-use App\PackageCriteria;
 use Illuminate\Http\Request;
+use App\Models\Package;
+use App\Models\Menu;
+use App\Models\PackageCriteria;
+use App\Models\Criteria;
+use App\Models\Food;
+use App\Models\MenuFood;
 
 class PackageController extends Controller
 {
-    public function index($id)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
+        
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
         $packages = Package::Where('serviceId', $id)->get();
 
         foreach ($packages as $package) {
@@ -38,10 +76,37 @@ class PackageController extends Controller
             ->with('menus', $menus);
     }
 
-    public function offerDetail($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
-        $package = Package::find(1)->get();
+        //
+    }
 
-        return view('offerDetail')->with('package', $package);
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

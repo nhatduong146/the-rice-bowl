@@ -31,16 +31,28 @@ Route::get('/login-form', function () {
     return view('auth.login');
 });
 
-Route::get('/offer/{id}', 'PackageController@index');
+// Route::get('/offer/{id}', 'PackageController@index');
 
-Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
-
-Route::resource('test', 'TestController');
+// Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
 
 Route::get('/admin/home', function () {
     return view('admin.index');
 });
 
 Auth::routes();
+
+Route::get('/test', function() {
+    return view('test');
+});
+
+Route::resource('/servicePackage', 'ServicePackageController');
+
+Route::resource('/service', 'ServiceController');
+
+Route::resource('/package', 'PackageController');
+
+Route::resource('/order', 'OrderController');
+
+Route::post('/order-create', 'OrderController@createOrder')->name('createOrder');
 
 // Route::get('/home', 'HomeController@index')->name('home');
