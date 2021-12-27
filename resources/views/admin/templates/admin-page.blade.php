@@ -20,7 +20,8 @@
     <link
         href="{{ asset('public/front-end/admin/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css') }}"
         rel="stylesheet" />
-
+    <!-- iCheck -->
+    <link href="{{ asset('public/front-end/admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset('public/front-end/admin/build/css/custom.min.css') }}" rel="stylesheet">
 
@@ -61,6 +62,9 @@
     <script
         src="{{ asset('public/front-end/admin/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js') }}">
     </script>
+
+    <!-- iCheck -->
+    <script src="{{ asset('public/front-end/admin/vendors/iCheck/icheck.min.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('public/front-end/admin/build/js/custom.min.js') }}"></script>

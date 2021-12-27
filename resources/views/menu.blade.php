@@ -10,7 +10,7 @@
     <section class="home-slider owl-carousel img"
         style="background-image: url({{ asset('public/front-end/images/bg_1.jpg') }});">
 
-        <div class="slider-item" style="background-image: url({{ asset('public/front-end/images/bg_3.jpg') }});">
+        <div class="slider-item" style="background-image: url({{ asset('public/front-end/images/menu-back.jpg') }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center">
@@ -88,7 +88,7 @@
                                 <div class="desc pl-3" style="margin-top: 20px">
                                     <div class="d-flex text align-items-center">
                                         <h3><span>{{ $mf->food->name }}</span></h3>
-                                        <span class="price">{{ number_format($mf->food->price, 0) }}đ</span>
+                                        <span class="price">{{ number_format($mf->food->price, 0) }} đ</span>
                                     </div>
                                 </div>
                             </div>

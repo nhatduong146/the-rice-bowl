@@ -5092,6 +5092,16 @@ input[type="button"].btn-block {
     background-color: #d39e00;
 }
 
+.hero img {
+    animation: imgRotate 40s linear infinite;
+}
+
+@keyframes imgRotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .badge-danger {
     color: #fff;
     background-color: #dc3545;

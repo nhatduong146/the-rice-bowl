@@ -1,8 +1,6 @@
 @extends('admin.templates.admin-page')
 
 @section('css')
-    <link href="{{ asset('public/front-end/admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
-
     <!-- bootstrap-progressbar -->
     <link
         href="{{ asset('public/front-end/admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css') }}"
@@ -763,8 +761,6 @@
     <!-- bootstrap-progressbar -->
     <script src="{{ asset('public/front-end/admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
     </script>
-    <!-- iCheck -->
-    <script src="{{ asset('public/front-end/admin/vendors/iCheck/icheck.min.js') }}"></script>
     <!-- Skycons -->
     <script src="{{ asset('public/front-end/admin/vendors/skycons/skycons.js') }}"></script>
     <!-- Flot -->
