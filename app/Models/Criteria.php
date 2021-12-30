@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Criteria extends Model
 {
+    protected $table = 'criteria';
     //
     protected $fillable = [
         'content'
     ];
 
-    public function PackageCriteria() {
+    public function PackageCriteria()
+    {
         return $this->hasMany('App\Models\PackageCriteria');
     }
 }

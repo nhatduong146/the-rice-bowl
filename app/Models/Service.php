@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    protected $table = "service";
     //
     protected $fillable = [
-        'name', 'detail', 'icon'
+        'id', 'name', 'detail', 'icon'
     ];
 
-    public function Package() {
+    public function Package()
+    {
         return $this->hasMany('App\Models\Package');
     }
 
-    public function Menu() {
+    public function Menu()
+    {
         return $this->hasMany('App\Models\Menu');
     }
 }

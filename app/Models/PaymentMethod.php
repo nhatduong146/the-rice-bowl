@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class PaymentMethod extends Model
 {
+    protected $table = 'paymentmethod';
     //
     protected $fillable = [
         'name'
     ];
 
-    public function Order() {
+    public function Order()
+    {
         return $this->hasMany('App\Models\Order');
     }
-
-    
 }

@@ -20,9 +20,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        
-
-
+        return view('cart.cart');
     }
 
     /**
@@ -120,8 +118,8 @@ class OrderController extends Controller
         // $menu = Menu::Where('id', $request->menuId)->get();
 
         // $menu = Menu::where('id', 1)->get();
-        $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
-                ->first();
+        $menu = DB::table('menu')->where('id', $request->menuId)->where('serviceId', 1)
+            ->first();
 
         $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
         foreach ($menu->menuFoods as $mf) {
@@ -133,7 +131,7 @@ class OrderController extends Controller
         //     $foods = Food::Where('id', $menuFood->foodId)->get();
         // }
 
-        
+
 
         return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu);
     }

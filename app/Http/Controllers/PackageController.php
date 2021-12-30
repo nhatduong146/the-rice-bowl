@@ -19,7 +19,6 @@ class PackageController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -72,7 +71,7 @@ class PackageController extends Controller
         }
 
 
-        return view('offer')->with('packages', $packages)
+        return view('package')->with('packages', $packages)
             ->with('menus', $menus);
     }
 

@@ -6,18 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    protected $table = 'menu';
     //
     protected $fillable = [
-        'id', 'name', 'cost', 'serviceId'
+        'id', 'price', 'serviceId', 'name'
     ];
 
-    protected $table = 'menus';
-
-    public function Package() {
+    public function Package()
+    {
         return $this->hasMany('App\Models\Package');
     }
 
-    public function MenuFood() {
+    public function MenuFood()
+    {
         return $this->hasMany('App\Models\MenuFood');
     }
 }

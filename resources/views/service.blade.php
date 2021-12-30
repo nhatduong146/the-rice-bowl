@@ -14,13 +14,13 @@
                     <div class="col-md-4 ftco-animate">
                         <div class="media d-block text-center block-6 services">
                             <div class="icon d-flex justify-content-center align-items-center mb-5">
-                                <span class="flaticon-diet"></span>
+                                <span class="{{ $service->icon }}"></span>
                             </div>
                             <div class="media-body">
                                 <a href="{{ URL::to('/service/' . $service->id) }}">
                                     <h3 class="heading">{{ $service->name }}</h3>
                                 </a>
-                                
+
                                 <p>{{ $service->detail }}</p>
                             </div>
                         </div>

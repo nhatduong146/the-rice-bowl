@@ -21,7 +21,9 @@ Route::get('/home', function () {
 
 Route::get('/menu', 'MenuController@index');
 
-Route::get('/service', 'ServiceController@getAllService');
+Route::get('/service', 'ServiceController@index');
+
+Route::get('/service/{id}', 'ServiceController@show');
 
 Route::get('/about', function () {
     return view('about');
@@ -31,22 +33,22 @@ Route::get('/login-form', function () {
     return view('auth.login');
 });
 
-// Route::get('/offer/{id}', 'PackageController@index');
+// Route::get('/offer/{id}', 'PackageController@show');
 
-// Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
+Route::get('/offer-detail/{id}', 'PackageController@show');
 
 
 Auth::routes();
 
-Route::get('/test', function() {
+Route::get('/test', function () {
     return view('test');
 });
 
-Route::resource('/servicePackage', 'ServicePackageController');
+// Route::resource('/servicePackage', 'ServicePackageController');
 
-Route::resource('/service', 'ServiceController');
+// Route::resource('/service', 'ServiceController');
 
-Route::resource('/package', 'PackageController');
+// Route::resource('/package', 'PackageController');
 
 Route::resource('/order', 'OrderController');
 

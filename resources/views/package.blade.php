@@ -68,9 +68,9 @@
                             <div class="pricing-entry">
                                 @foreach ($menu->menuFoods as $mf)
                                     <div class="d-flex text align-items-center" style="margin-bottom: 35px">
-                                        <img src="{{ asset($mf->food->image) }}"
+                                        <img src="{{ asset($mf->food->background) }}"
                                             style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                 box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                                                                                                                                                             box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                                         &nbsp;&nbsp;
                                         <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
                                         <span class="price">{{ number_format($mf->food->price, 0) }} đ</span>
@@ -82,7 +82,7 @@
                                             tiền</span>
                                     </h3>
                                     <span class="price total"
-                                        style="width: 200px">{{ number_format($menu->cost, 0) }}
+                                        style="width: 200px">{{ number_format($menu->price, 0) }}
                                         đ</span>
                                 </div>
                             </div>
@@ -101,13 +101,15 @@
                     @csrf
                     <div class="form-row">
                         <div class="form-group row">
-                            <label for="organizationDate" style="font-size: 1.2em; color: rgb(112, 109, 109); font-weight: 400">Thời
+                            <label for="organizationDate"
+                                style="font-size: 1.2em; color: rgb(112, 109, 109); font-weight: 400">Thời
                                 gian</label>
-                            <input type="datetime-local" class="inp form-control" id="dt" placeholder="Ngày/giờ" name="organizationDate"
-                                style="color: rgb(105, 105, 105)">
+                            <input type="datetime-local" class="inp form-control" id="dt" placeholder="Ngày/giờ"
+                                name="organizationDate" style="color: rgb(105, 105, 105)">
                         </div>
                         <div class="form-group row my-col">
-                            <label style="font-size: 1.2em; color: rgb(112, 112, 112); font-weight: 400" for="peopleNumber">Số
+                            <label style="font-size: 1.2em; color: rgb(112, 112, 112); font-weight: 400"
+                                for="peopleNumber">Số
                                 lượng
                                 người</label>
                             <input type="number" class="inp form-control" id="peopleNumber" name="peopleNumber">
@@ -128,7 +130,8 @@
                             <textarea class="inp form-control" id="note" name="note"></textarea>
                         </div>
                         <div class="row btn-order">
-                            <button style="width: 100%;border-color: rgb(126, 125, 125)" class="btn btn-dark" type="submit">Đặt
+                            <button style="width: 100%;border-color: rgb(126, 125, 125)" class="btn btn-dark"
+                                type="submit">Đặt
                                 đơn</button>
                         </div>
                     </div>
