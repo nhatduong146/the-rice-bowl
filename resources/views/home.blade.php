@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="home-slider owl-carousel img" style="background: linear-gradient(rgba(17, 30, 63, 0.9), rgba(112, 83, 15, 0.9)),
-            url({{ asset('public/front-end/images/anhFood1.jpg') }});
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;">
+                url({{ asset('public/front-end/images/anhFood1.jpg') }});
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;">
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container">
@@ -209,7 +209,7 @@
                 <div class="col-lg-4 d-flex ftco-animate">
                     <div class="services-wrap d-flex">
                         <a href="#" class="img order-lg-last"
-                            style="background-image: url({{ asset('public/front-end/images/anhFood7.jpg') }});"></a>
+                            style="background-image: url({{ asset('public/front-end/images/anhFood8.jpg') }});"></a>
                         <div class="text p-4">
                             <h3>Súp bò hầm</h3>
                             <p>Súp nóng hổi được hầm với thịt bò Mỹ sẽ để lại cho bạn cảm giác khó quên và muốn thử lại
