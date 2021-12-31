@@ -16,7 +16,6 @@ class CreatePackageCriteriasTable extends Migration
         Schema::create('package_criterias', function (Blueprint $table) {
             $table->integer('packageId');
             $table->integer('criteriaId');
-            $table->primary('packageId', 'criteriaId');
             $table->timestamps();
         });
     }

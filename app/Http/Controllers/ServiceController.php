@@ -63,7 +63,7 @@ class ServiceController extends Controller
             }
         }
 
-
+        
         $menus = Menu::Where('serviceId', $id)->get();
 
         foreach ($menus as $menu) {

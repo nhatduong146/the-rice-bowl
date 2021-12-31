@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PackageCriteria extends Model
 {
-    protected $table = 'packagecriteria';
+    protected $table = 'package_criterias';
     //
     protected $fillable = [
         'packageId', 'criteriaId'
