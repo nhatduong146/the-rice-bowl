@@ -45,10 +45,10 @@
                         <div class="services-wrap d-flex">
                             @if ($food->id <= 3)
                                 <a href="#" class="img"
-                                    style="background-image: url({{ asset($food->background) }});"></a>
+                                    style="background-image: url({{ asset($food->image) }});"></a>
                             @else
                                 <a href="#" class="img order-lg-last"
-                                    style="background-image: url({{ asset($food->background) }});"></a>
+                                    style="background-image: url({{ asset($food->image) }});"></a>
                             @endif
 
                             <div class="text p-4">
@@ -82,8 +82,7 @@
                         <h2 class="menu-title">Menu</h2>
                         @foreach ($menu->menuFoods as $mf)
                             <div class="pricing-entry d-flex ftco-animate">
-                                <div class="img"
-                                    style="background-image: url({{ asset($mf->food->background) }});">
+                                <div class="img" style="background-image: url({{ asset($mf->food->image) }});">
                                 </div>
                                 <div class="desc pl-3" style="margin-top: 20px">
                                     <div class="d-flex text align-items-center">

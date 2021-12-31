@@ -11,8 +11,11 @@
             <div id="back">
                 <canvas id="canvas" class="canvas-back"></canvas>
                 <div class="backRight" style="background-color: rgb(233, 188, 67)">
+                    <img src="{{ asset('public/front-end/images/anhFood1.jpg') }}" height="100%" alt=""
+                        style="z-index: 1000">
                 </div>
                 <div class="backLeft" style="background-color: rgb(233, 188, 67)">
+                    <img src="{{ asset('public/front-end/images/anhFood6.jpg') }}" width="100%" alt="">
                 </div>
             </div>
 
@@ -72,13 +75,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="right">
-                        <div class="content">
+                    <div class="right" style="background-color: #2c3034">
+                        <div class=" content">
                             <h2 style="color: rgb(233, 188, 67)">Đăng nhập</h2>
                             <form id="form-login" method="post" onsubmit="{{ route('login') }}">
                                 @csrf
                                 <div class="form-element form-stack">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="email" class="form-label" style="color: white">Email</label>
                                     <input id="email" type="email" name="email"
                                         class=" @error('email') is-invalid @enderror">
                                     @error('email')
@@ -89,7 +92,7 @@
                                 </div>
 
                                 <div class="form-element form-stack">
-                                    <label for="password" class="form-label">Mật khẩu</label>
+                                    <label for="password" class="form-label" style="color: white">Mật khẩu</label>
                                     <input id="password" type="password" class=" @error('password') is-invalid @enderror"
                                         name="password">
 
@@ -108,7 +111,8 @@
                             </form>
                             <div class="form-switch-signup">
                                 <button id="goRight" class="login off" name="signup"
-                                    style="color: rgb(233, 188, 67)">Đăng ký</button>
+                                    style="color: rgb(233, 188, 67)">Đăng
+                                    ký</button>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}"
                                         style="color: rgb(233, 188, 67)">

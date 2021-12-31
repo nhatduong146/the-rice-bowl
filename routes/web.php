@@ -1,5 +1,6 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,13 +12,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home', 'HomeController@index');
 
 Route::get('/menu', 'MenuController@index');
 
@@ -58,6 +55,7 @@ Route::post('/order-create', 'OrderController@createOrder')->name('createOrder')
 
 //admin
 Route::get('/admin/home', function () {
+    Alert::success('Success Title', 'Success Message');
     return view('admin.index');
 });
 

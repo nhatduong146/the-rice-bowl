@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Food;
 use App\FoodD;
-use App\Menu;
-use App\MenuFood;
+use App\Models\Menu;
+use App\Models\MenuFood;
+use App\Models\Food;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller

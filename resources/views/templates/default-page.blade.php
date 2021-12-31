@@ -51,6 +51,8 @@
 
     @yield('content')
 
+
+    @include('sweetalert::alert')
     <!-- footer -->
     {{-- @include("includes.footer") --}}
 
@@ -73,20 +75,22 @@
     <script src="{{ asset('public/front-end/js/google-map.js') }}"></script>
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
     <script>
         paypal.Button.render({
             // Configure environment
             env: 'sandbox',
             client: {
-            sandbox: 'AeRp7Afqa-rfLMVHrUPL8-aMcfmKLt8EAArheOUkMwFyLuf3sALgxG7K3WhJ-fy_aZanCTeU-BBQQEG0',
-            production: 'demo_production_client_id'
+                sandbox: 'AeRp7Afqa-rfLMVHrUPL8-aMcfmKLt8EAArheOUkMwFyLuf3sALgxG7K3WhJ-fy_aZanCTeU-BBQQEG0',
+                production: 'demo_production_client_id'
             },
             // Customize button (optional)
             locale: 'en_US',
             style: {
-            size: 'small',
-            color: 'gold',
-            shape: 'pill',
+                size: 'small',
+                color: 'gold',
+                shape: 'pill',
             },
 
             // Enable Pay Now checkout flow (optional)
@@ -94,24 +98,23 @@
 
             // Set up a payment
             payment: function(data, actions) {
-            return actions.payment.create({
-                transactions: [{
-                amount: {
-                    total: '0.01',
-                    currency: 'USD'
-                }
-                }]
-            });
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: '0.01',
+                            currency: 'USD'
+                        }
+                    }]
+                });
             },
             // Execute the payment
             onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function() {
-                // Show a confirmation message to the buyer
-                window.alert('Thank you for your purchase!');
-            });
+                return actions.payment.execute().then(function() {
+                    // Show a confirmation message to the buyer
+                    window.alert('Thank you for your purchase!');
+                });
             }
         }, '#paypal-button');
-
     </script>
 </body>
 

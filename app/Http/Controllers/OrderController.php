@@ -118,7 +118,7 @@ class OrderController extends Controller
         // $menu = Menu::Where('id', $request->menuId)->get();
 
         // $menu = Menu::where('id', 1)->get();
-        $menu = DB::table('menu')->where('id', $request->menuId)->where('serviceId', 1)
+        $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
             ->first();
 
         $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();

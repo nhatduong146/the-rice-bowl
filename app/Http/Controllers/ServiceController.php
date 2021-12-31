@@ -10,6 +10,7 @@ use App\Models\PackageCriteria;
 use App\Models\Criteria;
 use App\Models\Food;
 use App\Models\MenuFood;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceController extends Controller
 {

@@ -2,10 +2,10 @@
 
 @section('content')
     <section class="home-slider owl-carousel img" style="background: linear-gradient(rgba(17, 30, 63, 0.9), rgba(112, 83, 15, 0.9)),
-                url({{ asset('public/front-end/images/anhFood1.jpg') }});
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;">
+                                        url({{ asset('public/front-end/images/anhFood1.jpg') }});
+                                        background-position: center center;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;">
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container">
@@ -413,5 +413,8 @@
                 </div>
             </div>
         </section>
+
+
+
 
     @endsection
