@@ -32,7 +32,7 @@ Route::get('/login-form', function () {
 
 // Route::get('/offer/{id}', 'PackageController@show');
 
-Route::get('/offer-detail/{id}', 'PackageController@show');
+Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
 
 
 Auth::routes();

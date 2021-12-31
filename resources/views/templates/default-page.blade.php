@@ -52,7 +52,7 @@
     @yield('content')
 
 
-    @include('sweetalert::alert')
+    @include('sweet::alert')
     <!-- footer -->
     {{-- @include("includes.footer") --}}
 

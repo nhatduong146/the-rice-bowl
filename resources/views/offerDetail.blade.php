@@ -10,7 +10,7 @@
 @section('content')
     <section class="ftco-section ftco-services">
         <div class="container">
-            <h2>{{ $package[0]->name }} <button class="btn btn-dark">Đặt ngay</button></h2>
+            <h2>{{ $package[0]->content }} <button class="btn btn-dark">Đặt ngay</button></h2>
             <br>
             {{-- {{ $package[0]->detail }} --}}
 

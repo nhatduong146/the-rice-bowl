@@ -62,7 +62,7 @@ class PackageController extends Controller
 
 
         $menus = Menu::Where('serviceId', $id)->get();
-        
+
         foreach ($menus as $menu) {
             $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
             foreach ($menu->menuFoods as $mf) {
@@ -107,5 +107,12 @@ class PackageController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function offerDetail($id)
+    {
+        $package = Package::find(1)->get();
+
+        return view('offerDetail')->with('package', $package);
     }
 }

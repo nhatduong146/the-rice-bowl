@@ -70,7 +70,7 @@
                                     <div class="d-flex text align-items-center" style="margin-bottom: 35px">
                                         <img src="{{ asset($mf->food->image) }}"
                                             style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                                             box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                                                                                                                                                                                 box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                                         &nbsp;&nbsp;
                                         <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
                                         <span class="price">{{ number_format($mf->food->price, 0) }} đ</span>
@@ -81,8 +81,7 @@
                                     <h3 style="background: none;color:rgb(82, 82, 80)"><span class="total">Tổng
                                             tiền</span>
                                     </h3>
-                                    <span class="price total"
-                                        style="width: 200px">{{ number_format($menu->price, 0) }}
+                                    <span class="price total" style="width: 200px">{{ number_format($menu->cost, 0) }}
                                         đ</span>
                                 </div>
                             </div>
