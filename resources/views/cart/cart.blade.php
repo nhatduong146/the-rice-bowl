@@ -136,7 +136,7 @@
                                     <ul class="prices__items pl-0 pb-3">
                                         <li class="prices__item d-flex justify-content-between">
                                             <span class="prices__text" style="color: rgb(0, 0, 0)">Tạm tính</span>
-                                            <span class="prices__value" style="color: #34495e">209.000.000đ</span>
+                                            <span class="prices__value" style="color: #34495e">{{ number_format($totalCost, 0) }}đ</span>
                                         </li>
                                         <li class="prices__item d-flex justify-content-between">
                                             <span class="prices__text" style="color: rgb(0, 0, 0)">Thuế</span>
@@ -151,7 +151,7 @@
                                             <span class="prices__text" style="color: rgb(0, 0, 0); font-size: 20px">Tổng
                                                 cộng</span>
                                             <span class="prices__value"
-                                                style="color: #34495e; font-weight: bold; font-size: 20px">209.000.000đ</span>
+                                                style="color: #34495e; font-weight: bold; font-size: 20px">{{ number_format($totalCost, 0) }}đ</span>
                                         </li>
 
                                     </ul>
@@ -161,7 +161,7 @@
                                 </div>
 
                                 <div class="select-method row">
-                                    <duv class="col-1"></duv>
+                                    {{-- <div class="col-1"></div>
                                     <select id="payment" class="col-6">
                                         <option selected>Chọn phương thức thanh toán</option>
                                         @foreach ($paymentMethods as $paymentMethod)
@@ -169,7 +169,7 @@
                                                 {{ $paymentMethod->name }}</option>
                                         @endforeach
                                     </select>
-                                    <div id="paypal-button" class="col-5"></div>
+                                    <div id="paypal-button" class="col-5"></div> --}}
                                 </div>
                                 <button data-view-id="cart_navigation_proceed" type="button" class="cart__submit">Đặt dịch
                                     vụ</button>

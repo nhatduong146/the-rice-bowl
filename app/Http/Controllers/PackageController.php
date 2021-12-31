@@ -62,7 +62,7 @@ class PackageController extends Controller
 
 
         $menus = Menu::Where('serviceId', $id)->get();
-
+        
         foreach ($menus as $menu) {
             $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
             foreach ($menu->menuFoods as $mf) {

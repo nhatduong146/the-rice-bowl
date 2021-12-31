@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center">
                     <div class="col-md-7 col-sm-12 text-center ftco-animate">
-                        <h1 class="mb-3 mt-5 bread">THỰC ĐƠN ĐA DẠNG - PHONG PHÚ</h1>
+                        <h2 class="mb-3 mt-5 bread">THỰC ĐƠN ĐA DẠNG - PHONG PHÚ</h2>
                         <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span>
                             <span>Thực đơn</span>
                         </p>
@@ -30,9 +30,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">Our Menu</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts.</p>
+                    <h2 class="mb-4">Danh sách món ăn</h2>
+                    <p>Các món ăn hấp dẫn, đa dạng, phù hợp với mọi lứa tuối. Đáp ứng nhu cầu cho tất cả mọi người.</p>
                 </div>
             </div>
         </div>
@@ -68,11 +67,11 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">Our Menu Pricing</h2>
+                    <h2 class="mb-4">Danh sách thực đơn</h2>
                     <p class="flip"><span class="deg1"></span><span class="deg2"></span><span
                             class="deg3"></span></p>
-                    <p class="mt-5">Far far away, behind the word mountains, far from the countries Vokalia
-                        and Consonantia, there live the blind texts.</p>
+                    <p class="mt-5">Thực đơn được các chuyên gia hàng đầu thế giới tạo ra, đầy đủ tất cả chất
+                        dinh dưỡng cho chúng ta</p>
                 </div>
             </div>
             <div class="row">

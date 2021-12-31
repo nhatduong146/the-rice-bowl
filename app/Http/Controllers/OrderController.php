@@ -118,13 +118,17 @@ class OrderController extends Controller
         // $menu = Menu::Where('id', $request->menuId)->get();
 
         // $menu = Menu::where('id', 1)->get();
+        $totalCost = 0;
         $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
             ->first();
 
         $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
         foreach ($menu->menuFoods as $mf) {
             $mf->food = Food::findOrFail($mf->foodId);
+            $totalCost += $mf->food->price;
         }
+
+        $totalCost *= $request->peopleNumber;
 
         // $menuFoods = MenuFood::Where('menuId', $menu->id)->get();
         // foreach ($menuFoods as $menuFood) {
@@ -133,6 +137,7 @@ class OrderController extends Controller
 
 
 
-        return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu);
+        return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
+            ->with('totalCost', $totalCost);
     }
 }

@@ -54,10 +54,7 @@ Route::post('/order-create', 'OrderController@createOrder')->name('createOrder')
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //admin
-Route::get('/admin/home', function () {
-    Alert::success('Success Title', 'Success Message');
-    return view('admin.index');
-});
+Route::get('/admin/home', 'Admin\AdminController@index')->name('admin');
 
 Route::get('/admin/form-advanced', function () {
     return view('admin.form_advanced');

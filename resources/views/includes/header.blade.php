@@ -18,6 +18,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
                     </li>
+                    
                     {{-- @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng ký') }}</a>
@@ -41,6 +42,12 @@
                             </form>
                         </div>
                     </li>
+                    @if (Auth::user()->fullName == 'admin')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin') }}">{{ __('Trang quản trị') }}</a>
+                        </li>
+                    @endif
+                    
                 @endguest
             </ul>
         </div>
