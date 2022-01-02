@@ -7,7 +7,9 @@ body {
     overflow: hidden;
     width: 100% !important;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+    font-family: flaticon;
+    src: "../../public/front-end/fonts/flaticon/font/Flaticon.ttf";
 }
 
 .backRight {

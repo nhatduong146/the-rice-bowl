@@ -32,6 +32,14 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if (Auth::user()->fullName == 'admin')
+                                {{-- <a class="nav-link" href="{{ route('admin') }}">{{ __('Trang quản trị') }}</a> --}}
+                                <a class="dropdown-item" href="{{ route('admin') }}" onclick="event.preventDefault();
+                                                    document.getElementById('admin-form').submit();">
+                                {{ __('Trang quản trị') }}
+                            </a>
+                            @endif
+
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
@@ -40,13 +48,15 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+
+                            <form id="admin-form" action="{{ route('admin') }}" method="GET" style="display: none;">
+                                @csrf
+                            </form>
+
+                            
                         </div>
                     </li>
-                    @if (Auth::user()->fullName == 'admin')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin') }}">{{ __('Trang quản trị') }}</a>
-                        </li>
-                    @endif
+                    
                     
                 @endguest
             </ul>

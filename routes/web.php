@@ -14,7 +14,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/menu', 'MenuController@index');
 
@@ -107,3 +107,5 @@ Route::get('/admin/tables', function () {
 Route::get('/admin/tables-dynamic', function () {
     return view('admin.tables_dynamic');
 });
+
+Route::get('/order-create', 'OrderController@backToHomePage');

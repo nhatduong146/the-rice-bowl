@@ -140,4 +140,8 @@ class OrderController extends Controller
         return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
             ->with('totalCost', $totalCost);
     }
+
+    public function backToHomePage() {
+        redirect('home');
+    }
 }

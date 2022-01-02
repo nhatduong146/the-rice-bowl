@@ -4,6 +4,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('public/css/app.css?v=') . time() }}"> --}}
     {{-- <script src="{{ asset('public/js/app.js') }}" defer></script> --}}
     <link rel="stylesheet" href="{{ asset('public/css/cart.css') }}">
+    
+   
 @endsection
 @section('content')
 
@@ -171,7 +173,7 @@
                                     </select>
                                     <div id="paypal-button" class="col-5"></div> --}}
                                 </div>
-                                <button data-view-id="cart_navigation_proceed" type="button" class="cart__submit">Đặt dịch
+                                <button data-view-id="cart_navigation_proceed" data-toggle="modal" data-target="#exampleModalLong" type="button" class="cart__submit">Đặt dịch
                                     vụ</button>
 
                             </div>
@@ -179,9 +181,48 @@
                     </div>
                 </div>
             </div>
+
+           
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: red">Thông báo</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bạn đã đặt dịch vụ thành công</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-back-homepage"
+                            onclick="window.location.href = '{{ route('home')}}' ">Đồng ý</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btn-back-homepage').click(function() {
+                $.ajax({
+                    url: '{{ URL::to('/order-create') }}',
+                    method: 'GET',
+                    success: function(data) {
+                        echo "Success";
+                    }
+                })
+            })
+        })
+    </script>
 
 
 @endsection

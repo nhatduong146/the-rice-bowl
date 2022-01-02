@@ -9,7 +9,7 @@
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
                         data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('public/front-end/admin/images/img.jpg') }}" alt="">John Doe
+                        <img src="{{ asset('public/front-end/admin/images/img.jpg') }}" alt="">Thúy Hằng
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="javascript:;"> Profile</a>

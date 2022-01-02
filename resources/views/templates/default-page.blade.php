@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="{{ asset('public/front-end/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/front-end/css/icomoon.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/front-end/css/style.css?v=').time() }}">
     {{-- <link rel="stylesheet" href="{{ asset('public/front-end/css/login.css') }}"> --}}
 
 
@@ -46,13 +46,20 @@
 </head>
 
 <body>
+    <style>
+        body {
+            font-family: flaticon !important; 
+            src: "../../public/front-end/fonts/flaticon/font/Flaticon.ttf" !important;
+            font-size: 20px !important;
+        }
+    </style>
     <!-- header -->
     @include("includes.header")
 
     @yield('content')
 
 
-    @include('sweet::alert')
+    {{-- @include('sweet::alert') --}}
     <!-- footer -->
     {{-- @include("includes.footer") --}}
 
@@ -75,7 +82,7 @@
     <script src="{{ asset('public/front-end/js/google-map.js') }}"></script>
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    {{-- <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script> --}}
 
     <script>
         paypal.Button.render({

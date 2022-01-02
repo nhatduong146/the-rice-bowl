@@ -90,8 +90,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
-                    <h2 class="mb-4">DỊCH VỤ CỦA CHÚNG TÔI</h2>
-                    <p>Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực hóa ý tưởng của bạn về một buổi tiệc,
+                    <h2 class="mb-4" style="font-size: 35px">DỊCH VỤ CỦA CHÚNG TÔI</h2>
+                    <p style="font-size: 25px">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực hóa ý tưởng của bạn về một buổi tiệc,
                         một đám cưới,....</p>
                 </div>
             </div>
@@ -102,8 +102,8 @@
                             <span class="flaticon-diet"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">CƯỚI HỎI</h3>
-                            <p>Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra những trải nghiệm sâu sắc
+                            <h3 class="heading" style="font-size: 22px">CƯỚI HỎI</h3>
+                            <p style="font-size: 20px">Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra những trải nghiệm sâu sắc
                                 khó quên nhất.</p>
                         </div>
                     </div>
@@ -114,8 +114,8 @@
                             <span class="flaticon-bicycle"></span>
                         </div>
                         <div class="media-body">
-                            <h3 class="heading">SINH NHẬT - THÔI NÔI</h3>
-                            <p>Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé, cho gia đình và các cặp
+                            <h3 class="heading" style="font-size: 22px">SINH NHẬT - THÔI NÔI</h3>
+                            <p style="font-size: 20px">Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé, cho gia đình và các cặp
                                 đôi.</p>
                         </div>
                     </div>
@@ -125,8 +125,8 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-5"><span
                                 class="flaticon-pizza-1"></span></div>
                         <div class="media-body">
-                            <h3 class="heading">TIỆC THEO CHỦ ĐỀ</h3>
-                            <p>Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước đó thành một không gian
+                            <h3 class="heading" style="font-size: 22px">TIỆC THEO CHỦ ĐỀ</h3>
+                            <p style="font-size: 20px">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước đó thành một không gian
                                 tuyệt đẹp.</p>
                         </div>
                     </div>
