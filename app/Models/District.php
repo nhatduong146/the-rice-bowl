@@ -15,4 +15,8 @@ class District extends Model
     public function province() {
         return $this->belongsTo('App\Models\Province');
     }
+
+    public function village() {
+        return $this->hasMany('App\Models\Village');
+    }
 }

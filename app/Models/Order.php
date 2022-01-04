@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    //
+    protected $table = 'orders';
+
     protected $fillable = [
         'userId', 'peopleNumber', 'orderDate', 'organizationDate', 'note',
         'paymentId', 'status', 'serviceId', 'menuId', 'packageId'
@@ -25,17 +26,13 @@ class Order extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function Menu() {
-        return $this->belongsTo('App\Models\Menu');
-    }
-
     public function Package() {
         return $this->belongsTo('App\Models\Package');
     }
 
     // protected $casts = [
     //     'orderDate' => 'date:Y-m-d',
-    //     'organizationDate' => 'datetime:Y-m-d H:00',
+    //     'organizationDate' => 'datetime:Y-m-d H:i:s',
     // ];
 
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProvincesTable extends Migration
+class CreateOrderDrinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateProvincesTable extends Migration
      */
     public function up()
     {
-        Schema::create('provinces', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('type');
-            $table->string('slug');
-            $table->integer('nationalityId');
+        Schema::create('order_drinks', function (Blueprint $table) {
+            
+            $table->integer('orderId');
+            $table->integer('drinkId');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateProvincesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('provinces');
+        Schema::dropIfExists('order_drinks');
     }
 }
