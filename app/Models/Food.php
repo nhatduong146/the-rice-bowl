@@ -9,7 +9,7 @@ class Food extends Model
     protected $table = 'foods';
     //
     protected $fillable = [
-        'id', 'name', 'image', 'price'
+        'id', 'name', 'image', 'price', 'category_id'
     ];
 
     public function MenuFood()
