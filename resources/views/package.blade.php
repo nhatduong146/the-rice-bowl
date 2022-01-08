@@ -56,92 +56,156 @@
         </div>
     </div>
 
-    <section class="ftco-section ftco-services">
+    <section class="ftco-section ftco-services" style="overflow: hidden">
+        <h1 style="text-align: center; margin-bottom: 50px; color: rgb(112, 112, 112)">Đặt ngay</h1>
         <div class="row">
-            <div class="col-md-8">
-                <h1 style="text-align: center">Our Menu</h1>
-                <div class="row" style="margin-left: 20px;margin-top: 60px">
-
-                    @foreach ($menus as $menu)
-                        <div class="col-md-6" style="margin-bottom: 50px">
-                            <div class="title_menu ">{{ $menu->name }}</div>
-                            <div class="pricing-entry">
-                                @foreach ($menu->menuFoods as $mf)
-                                    <div class="d-flex text align-items-center" style="margin-bottom: 35px">
-                                        <img src="{{ asset($mf->food->image) }}"
-                                            style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                                                 box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
-                                        &nbsp;&nbsp;
-                                        <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
-                                        <span class="price">{{ number_format($mf->food->price, 0) }} đ</span>
-                                    </div>
-                                @endforeach
-
-                                <div class="d-flex text align-items-center">
-                                    <h3 style="background: none;color:rgb(82, 82, 80)"><span class="total">Tổng
-                                            tiền</span>
-                                    </h3>
-                                    <span class="price total" style="width: 200px">{{ number_format($menu->cost, 0) }}
-                                        đ</span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="col-md-1"></div>
-
-            <div class="col-md-3" style="padding-right: 80px;color: rgba(246, 12, 12, 0.794)">
-                <h1 style="text-align: center; margin-bottom: 50px; color: rgb(112, 112, 112)">Đặt ngay</h1>
+            <div class="col-12 ">
                 <form method="POST" action="{{ route('createOrder') }}">
                     @csrf
-                    <div class="form-row">
-                        <div class="form-group row">
+                    <div class="form-order d-flex flex-row">
+                        <div class="form-group col-3">
                             <label for="organizationDate"
                                 style="font-size: 1.2em; color: rgb(112, 109, 109); font-weight: 400">Thời
                                 gian</label>
                             <input type="datetime-local" class="inp form-control" id="dt" placeholder="Ngày/giờ"
                                 name="organizationDate" style="color: rgb(105, 105, 105)">
                         </div>
-                        <div class="form-group row my-col">
+                        <div class="form-group col-2 ">
                             <label style="font-size: 1.2em; color: rgb(112, 112, 112); font-weight: 400"
                                 for="peopleNumber">Số
                                 lượng
                                 người</label>
                             <input type="number" class="inp form-control" id="peopleNumber" name="peopleNumber">
                         </div>
-                        <div class="form-group row my-col sel">
-                            <label style="font-size: 1.2em; color: rgb(133, 128, 128); font-weight: 400"
-                                for="menuId">Menu</label>
-                            <select class="form-control sel" style="width: 200%" name="menuId">
-                                <option value="0">Chọn menu</option>
-                                @foreach ($menus as $menu)
-                                    <option value="{{ $menu->id }}">{{ $menu->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group row my-col" style="width: 120%">
+                        
+                        <div class="form-group col-4 ">
                             <label style="font-size: 1.2em; color: rgb(121, 118, 118); font-weight: 400" for="note">Ghi
                                 chú</label>
-                            <textarea class="inp form-control" id="note" name="note"></textarea>
+                            <input type="text" class=" form-control" id="note" name="note"></input>
                         </div>
-                        <div class="row btn-order">
-                            <button style="width: 100%;border-color: rgb(126, 125, 125)" class="btn btn-dark"
+                        <div class="form-group col-3 btn-order d-flex align-items-end">
+                            <button style="width: 100%;border-color: rgb(126, 125, 125)" class="btn btn-success"
                                 type="submit">Đặt
                                 đơn</button>
                         </div>
                     </div>
 
                 </form>
+    
+                
+            </div>
+
+            
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex flex-row" style="padding: 0 15px">
+                <div class="col-6" >
+                    <div class="d-flex flex-column justify-content-start align-items-start" >
+                        <div class="form-group w-50 " >
+                            <label style="font-size: 1.2em; color: rgb(133, 128, 128); font-weight: 400"
+                                for="menuId">Menu</label>
+                            <select class="form-control sel" name="menuId" id="menu">
+                                <option value="0">Chọn menu</option>
+                                @foreach ($menus as $menu)
+                                    <option value="{{ $menu->id }}">{{ $menu->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-12">
+                            
+
+                            <table class="table-food" id="table-select-food">
+                                <thead>
+                                    <tr class="headings text-center" style="font-size: 20px">
+                                        <th class="column-title" style="width: 25%">Ảnh </th>
+                                        <th class="column-title" style="width: 25%">Tên </th>
+                                        <th class="column-title" style="width: 25%">Giá </th>
+                                        <th class="column-title" style="width: 25%">Hành động </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center" style="font-size: 18px">
+                                    <tr class="even pointer">
+                                        <td class=" ">1</td>
+                                        <td class=" ">2</td>
+                                        <td class=" ">3</td>
+                                        <td class=" last">
+                                            <button class="btn btn-danger"
+                                            onclick="window.location.href = '' ">Xóa</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+    
+                    </div>
+                </div>
+    
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12 list-food">
+                            <label style="font-size: 1.2em; color: rgb(133, 128, 128); font-weight: 400"
+                                for="menuId">Danh sách món ăn</label>
+                            <table class="table-list-food" id="table-list-food">
+                                <thead>
+                                    <tr class="headings text-center" style="font-size: 20px">
+                                        <th class="column-title" style="width: 25%">Ảnh </th>
+                                        <th class="column-title" style="width: 25%">Tên </th>
+                                        <th class="column-title" style="width: 25%">Giá </th>
+                                        <th class="column-title" style="width: 25%">Hành động </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center" style="font-size: 18px">
+                                    @foreach ($foods as $food)
+                                        <tr class="even pointer">
+                                            <td class=" ">
+                                                <img src="{{ asset($food->image) }}" alt="" class="img-food"></td>
+                                            <td class=" ">{{ $food->name }}</td>
+                                            <td class=" ">{{ $food->price }}</td>
+                                            <td class=" last">
+                                                <button class="btn btn-primary"
+                                                onclick="window.location.href = '' ">Thêm</button></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    
+                    </div>
+                </div>
             </div>
         </div>
 
 
 
-
     </section>
 
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#menu').on('change', function(event) {
+                event.preventDefault();
+                var id = $('#menu option').filter(":selected").val();
+                // var id = $('#menu').value;
+                // alert(id);
+                var _token = $('input[name=_token]').val(); 
+                $.ajax({
+                    url:"{{route('showMenuById')}}",
+                    method:"POST",
+                    data:{
+                        id: id,
+                        _token: _token
+                    },
+                    dataType:"JSON",
+                    success:function(data){
+                        $('#table-select-food tbody').html(data.table_data);
+                    }
+                })
+            })
+        })
+
+    </script>
 @endsection

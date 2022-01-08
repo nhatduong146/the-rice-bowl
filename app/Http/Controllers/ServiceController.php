@@ -74,9 +74,11 @@ class ServiceController extends Controller
             }
         }
 
+        $foods = Food::all();
+
 
         return view('package')->with('packages', $packages)
-            ->with('menus', $menus);
+            ->with('menus', $menus)->with('foods', $foods);
     }
 
     /**

@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('street');
             $table->integer('villageId');
             $table->integer('roleId');
+            $table->string('avatarUrl');
             $table->rememberToken();
             $table->timestamps();
         });

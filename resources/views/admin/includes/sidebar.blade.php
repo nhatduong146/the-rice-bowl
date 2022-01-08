@@ -68,7 +68,7 @@
 
                     <li><a><i class="fa fa-cube"></i> Đơn hàng <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Danh sách đơn hàng</a></li>
+                            <li><a href="{{route('orderManagement')}}">Danh sách đơn hàng</a></li>
                             <li><a href="index.html">Duyệt đơn hàng</a></li>
                         </ul>
                     </li>

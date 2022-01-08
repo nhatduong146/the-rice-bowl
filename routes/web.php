@@ -37,10 +37,6 @@ Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
 
 Auth::routes();
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 // Route::resource('/servicePackage', 'ServicePackageController');
 
 // Route::resource('/service', 'ServiceController');
@@ -51,10 +47,25 @@ Route::resource('/order', 'OrderController');
 
 Route::post('/order-create', 'OrderController@createOrder')->name('createOrder');
 
+Route::get('/profile/infor', 'UserController@index')->name('profile');
+
+Route::get('/profile/history', 'UserController@history')->name('history');
+
+Route::post('/profile/update', 'UserController@updateInfor')->name('updateInfor');
+
+Route::post('/district', 'AddressController@getDistrict')->name('getDistrict');
+
+Route::post('/village', 'AddressController@getVillage')->name('getVillage');
+
+Route::post('/change-avatar', 'UserController@updateAvatar')->name('updateAvatar');
+
+
 // Route::get('/home', 'HomeController@index')->name('home');
 
 //admin
 Route::get('/admin/home', 'Admin\AdminController@index')->name('admin');
+
+Route::get('/admin/orderManagement', 'Admin\OrderController@index')->name('orderManagement');
 
 Route::get('/admin/form-advanced', function () {
     return view('admin.form_advanced');
@@ -109,3 +120,5 @@ Route::get('/admin/tables-dynamic', function () {
 });
 
 Route::get('/order-create', 'OrderController@backToHomePage');
+
+Route::post('/showMenu', 'MenuController@showMenuById')->name('showMenuById');

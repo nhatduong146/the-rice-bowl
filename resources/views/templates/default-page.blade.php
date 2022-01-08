@@ -37,9 +37,14 @@
     {{-- <link rel="stylesheet" href="{{ asset('public/front-end/css/login.css') }}"> --}}
 
 
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.3/jquery.min.js"></script> --}}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+        crossorigin="anonymous"></script>
 
     @yield('css')
     @yield('script')
@@ -83,6 +88,8 @@
     <script src="{{ asset('public/front-end/js/main.js') }}"></script>
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
     {{-- <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script> --}}
+
+    @yield('js')
 
     <script>
         paypal.Button.render({

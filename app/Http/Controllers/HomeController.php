@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 // use Alert;
 // use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 // use RealRashid\SweetAlert\ToSweetAlert;
@@ -26,6 +31,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(isset(Auth::user()->email)) {
+            $email = Auth::user()->email;
+            $user = DB::table('users')->where('email', $email)->first();
+            Session::put('id', $user->id);  
+        }
         return view('home');
     }
 }

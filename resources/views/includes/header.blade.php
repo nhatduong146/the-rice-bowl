@@ -40,10 +40,18 @@
                             </a>
                             @endif
 
+                            <a class="dropdown-item" href="{{ route('profile') }}" >
+                                {{ __('Profile') }}
+                            </a>
+
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+
+                            {{-- <form id="profile-form" action="{{ route('profile') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form> --}}
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
