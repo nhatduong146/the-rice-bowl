@@ -55,10 +55,11 @@ $(function () {
 
         var foodName = $('#foodName').val();
         var category = $(this).val();
-        var _token = $('input[name="_token"]').val();
+        var _token = $('input[name=_token]').val();
 
         $.ajax({
-            url: "http://localhost/the-rice-bowl/search",
+            // url: "http://localhost/the-rice-bowl/search",
+            url: "route('search')",
             method: "POST", // phương thức gửi dữ liệu.
             data: { foodName: foodName, categoryId: category, _token: _token },
             success: function (data) { //dữ liệu nhận về
@@ -79,10 +80,11 @@ $(function () {
 
         var foodName = $(this).val();
         var category = $('#categoryOption').val();
-        var _token = $('input[name="_token"]').val();
+        var _token = $('input[name=_token]').val();
 
         $.ajax({
-            url: "http://localhost/the-rice-bowl/search",
+            // url: "http://localhost/the-rice-bowl/search",
+            url: "route('search')",
             method: "POST", // phương thức gửi dữ liệu.
             data: { foodName: foodName, categoryId: category, _token: _token },
             success: function (data) { //dữ liệu nhận về

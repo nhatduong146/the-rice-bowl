@@ -103,7 +103,20 @@ class OrderController extends Controller
      */
     public function createOrder(Request $request)
     {
-        //
+        if($request->menuId == -1) {
+
+        } else {
+            $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
+                                                                        ->first();
+
+            $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
+            foreach ($menu->menuFoods as $mf) {
+                $mf->food = Food::findOrFail($mf->foodId);
+                $totalCost += $mf->food->price;
+            }
+        }
+
+
         $order = new Order;
         $order->organizationDate = $request->organizationDate;
         $order->peopleNumber = $request->peopleNumber;
@@ -119,14 +132,7 @@ class OrderController extends Controller
 
         // $menu = Menu::where('id', 1)->get();
         $totalCost = 0;
-        $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
-            ->first();
-
-        $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
-        foreach ($menu->menuFoods as $mf) {
-            $mf->food = Food::findOrFail($mf->foodId);
-            $totalCost += $mf->food->price;
-        }
+        
 
         $totalCost *= $request->peopleNumber;
 

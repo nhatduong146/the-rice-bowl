@@ -113,10 +113,10 @@ Route::get('/order-create', 'OrderController@backToHomePage');
 
 Route::post('/search', 'FoodController@getSearchAjax')->name('search');
 
-Route::post('/add-food', 'FoodController@addFood');
+Route::post('/add-food', 'FoodController@addFood')->name('addFood');
 
-Route::post('/remove-food', 'FoodController@removeFood');
+Route::post('/remove-food', 'FoodController@removeFood')->name('removeFood');
 
-Route::post('/init-session', 'FoodController@initSession');
+Route::post('/init-session', 'FoodController@initSession')->name('initSession');
 
-Route::get('/update-menu', 'FoodController@updateMenu');
+Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');
