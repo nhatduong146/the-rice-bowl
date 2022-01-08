@@ -33,7 +33,7 @@ class FoodController extends Controller
         foreach ($foods as $food) {
             $output .=  '<div class="row" style="padding-left: 15px">';
             $output .=  '<div class="d-flex text" style="margin-bottom: 35px; display: inline-block;width: 90%;">';
-            $output .=  '<img src="http://localhost/the-rice-bowl/' . $food->image . '" style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />';
+            $output .=  '<img src="' . asset($food->image) . '" style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />';
             $output .=  '&nbsp;&nbsp;';
             $output .= '<h3 style="background: none; padding-top: 7px;">
                              <span style="color: rgb(231, 228, 212) !important; ">' . $food->name . '</span> </h3>';
@@ -108,7 +108,7 @@ class FoodController extends Controller
         foreach ($foods as $food) {
             $output .= '<div>'
                 . '<div class="d-flex text align-items-center" style="margin-bottom: 35px">'
-                . '<img src="http://localhost/the-rice-bowl/' . $food->image . '"'
+                . '<img src="' . asset($food->image) . '"'
                 . 'style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;
                     max-width:50px; max-height: 50px;min-width: 50px; min-height: 50px;box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />'
                 . '&nbsp;&nbsp;'

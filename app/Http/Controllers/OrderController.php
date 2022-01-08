@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\PaymentMethod;
 use App\Models\MenuFood;
 use App\Models\Food;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use SebastianBergmann\Environment\Console;
 
@@ -103,18 +104,7 @@ class OrderController extends Controller
      */
     public function createOrder(Request $request)
     {
-        if($request->menuId == -1) {
-
-        } else {
-            $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
-                                                                        ->first();
-
-            $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
-            foreach ($menu->menuFoods as $mf) {
-                $mf->food = Food::findOrFail($mf->foodId);
-                $totalCost += $mf->food->price;
-            }
-        }
+        
 
 
         $order = new Order;
@@ -128,23 +118,43 @@ class OrderController extends Controller
         $order->userId = 1;
 
         $paymentMethods = PaymentMethod::all();
-        // $menu = Menu::Where('id', $request->menuId)->get();
-
-        // $menu = Menu::where('id', 1)->get();
-        $totalCost = 0;
         
 
-        $totalCost *= $request->peopleNumber;
+        if($request->menuId == -1) {
+            $foodIds = $request->session()->get('foodIds', null);
+            $totalCost = 0;
+            $foods = new Collection();
+            foreach($foodIds as $foodId) {
+                $food = Food::where('id', $foodId)->first();   
+                $foods->push($food);
+                $totalCost += $food->price;
+            }
+            $totalCost *= $request->peopleNumber;
 
-        // $menuFoods = MenuFood::Where('menuId', $menu->id)->get();
-        // foreach ($menuFoods as $menuFood) {
-        //     $foods = Food::Where('id', $menuFood->foodId)->get();
-        // }
+            return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
+                                    ->with('totalCost', $totalCost);
+        } else {
+            $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', 1)
+                                                                        ->first();
+
+            $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
+            $totalCost = 0;
+            foreach ($menu->menuFoods as $mf) {
+                $mf->food = Food::findOrFail($mf->foodId);
+                $totalCost += $mf->food->price;
+            }
+
+            $totalCost *= $request->peopleNumber;
+
+            
+            return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
+                                    ->with('totalCost', $totalCost);
+        }
 
 
 
-        return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
-            ->with('totalCost', $totalCost);
+        // return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
+        //     ->with('totalCost', $totalCost);
     }
 
     public function backToHomePage() {
