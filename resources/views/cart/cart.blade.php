@@ -81,16 +81,31 @@
                             <div class="col-12 pt-3" style="margin-bottom: 50px">
                                 {{-- <div class="title_menu ">{{ $menu->name }}</div> --}}
                                 <div class="pricing-entry">
-                                    @foreach ($menu->menuFoods as $mf)
-                                        <div class="d-flex text align-items-center" style="margin-bottom: 35px">
-                                            <img src="{{ asset($mf->food->image) }}"
-                                                style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
-                                            &nbsp;&nbsp;
-                                            <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
-                                            <span class="price">{{ number_format($mf->food->price, 0) }}đ</span>
-                                        </div>
-                                    @endforeach
+                                    @if (isset($menu))
+                                        @foreach ($menu->menuFoods as $mf)
+                                            <div class="d-flex text align-items-center" style="margin-bottom: 35px">
+                                                <img src="{{ asset($mf->food->image) }}"
+                                                    style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                &nbsp;&nbsp;
+                                                <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
+                                                <span class="price">{{ number_format($mf->food->price, 0) }}đ</span>
+                                            </div>
+                                        @endforeach
+                                        
+                                    @else
+                                        @foreach ($foods as $food)
+                                            <div class="d-flex text align-items-center" style="margin-bottom: 35px">
+                                                <img src="{{ asset($food->image) }}"
+                                                    style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                &nbsp;&nbsp;
+                                                <h3 style="background: none"><span>{{ $food->name }}</h3>
+                                                <span class="price">{{ number_format($food->price, 0) }}đ</span>
+                                            </div>
+                                        @endforeach
+                                        
+                                    @endif
                                 </div>
 
                             </div>

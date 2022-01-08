@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodController;
 use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
@@ -122,3 +123,12 @@ Route::get('/admin/tables-dynamic', function () {
 Route::get('/order-create', 'OrderController@backToHomePage');
 
 Route::post('/showMenu', 'MenuController@showMenuById')->name('showMenuById');
+Route::post('/search', 'FoodController@getSearchAjax')->name('search');
+
+Route::post('/add-food', 'FoodController@addFood')->name('addFood');
+
+Route::post('/remove-food', 'FoodController@removeFood')->name('removeFood');
+
+Route::post('/init-session', 'FoodController@initSession')->name('initSession');
+
+Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');

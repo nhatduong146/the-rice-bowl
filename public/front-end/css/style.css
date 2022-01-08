@@ -10272,10 +10272,10 @@ h5,
 .pricing-entry .text:after {
     position: absolute;
     bottom: 35%;
-    left: 0;
+    left: 5px;
     right: 0;
     content: "";
-    width: 100%;
+    width: 95%;
     height: 1px;
     border-bottom: 1px dashed #bf7e06;
     z-index: -1;
