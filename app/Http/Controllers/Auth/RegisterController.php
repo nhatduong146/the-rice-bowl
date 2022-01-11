@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'villageId' => 2,
             'roleId' => 1,
             'password' => Hash::make($data['password']),
+            'avatar' => ''
         ]);
     }
 }

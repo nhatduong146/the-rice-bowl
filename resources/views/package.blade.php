@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="section-title text-center">
                 <h3 style="color: white">GÓI ƯU ĐÃI</h3>
-                <p>Nhà hàng the rice bowl luôn có các gói ưu đãi của từng dịch vụ, sẵn sàng đáp ứng nhu cầu của bạn </p>
+                <p>The Rice Bowl restaurant luôn có các gói ưu đãi của từng dịch vụ, sẵn sàng đáp ứng nhu cầu của bạn </p>
             </div><!-- end title -->
 
             <div class="row">

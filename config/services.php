@@ -29,5 +29,11 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'facebook' => [
+        'client_id' => '452643573261693',  //client face của bạn
+        'client_secret' => 'ed2f673df1cf861d4ca1067f2d0bd730',  //client app service face của bạn
+        'redirect' => 'http://localhost/the-rice-bowl/login/callback' //callback trả về
+    ],
+
 
 ];

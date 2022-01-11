@@ -60,6 +60,11 @@ Route::get('/admin/form-advanced', function () {
     return view('admin.form_advanced');
 });
 
+//Login facebook
+Route::get('/login-facebook','SocialController@login_facebook');
+Route::get('/login/callback','SocialController@callback_facebook');
+
+
 Route::get('/admin/form-validation', function () {
     return view('admin.form_validation');
 });
@@ -109,3 +114,6 @@ Route::get('/admin/tables-dynamic', function () {
 });
 
 Route::get('/order-create', 'OrderController@backToHomePage');
+
+Route::get('/evaluate', 'EvaluateController@index')->name('list_evaluate');
+Route::post('/evaluate', 'EvaluateController@send_comment')->name('send_comment');

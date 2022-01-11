@@ -1,5 +1,43 @@
 @extends('templates.default-page')
 
+<style type="text/css">
+    .avaUser{
+        padding: 0.25rem;
+        background-color: #fff;
+        border: 0px solid #dee2e6;
+        border-radius: 75.25rem;
+        /* max-width: 8%; */
+        width: 88px;
+        height: 88px;
+    }
+    div.stars {}
+ 
+	a.star {
+    	font-size: 24px;
+    	/* color: #f0f1f4; */
+    	color: #fffc68 !important;
+    	cursor: pointer;
+    	line-height: 1;
+    	transition: all 0.1s ease;
+	}
+
+	a.star span.vote-hover {
+    	color: #fffc68;
+	}
+
+	a.star span:active {
+    	color: #fffb20;
+	}
+
+	a.star span.vote-active {
+    	color: #ffee00;
+	}
+
+	.blue {
+		color: #ffe600;
+	}
+</style>
+
 @section('content')
     <section class="home-slider owl-carousel img" style="background: linear-gradient(rgba(17, 30, 63, 0.9), rgba(112, 83, 15, 0.9)),
                                         url({{ asset('public/front-end/images/anhFood1.jpg') }});
@@ -311,6 +349,57 @@
             </div>
         </section>
 
+        <section class="ftco-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm heading-section ftco-animate text-center">
+                        <h2 class="mb-4" style="color: #FEB700">ĐÁNH GIÁ TỪ PHÍA KHÁCH HÀNG</h2>
+                        <p style="color: #FFE39C">Những đóng góp quý giá của quý khách là động lực để chúng tôi cố gắng hoàn thiện hơn!
+                        </p>
+                        <p style="color: #FFE39C">Bạn ngon miệng - Chúng tôi hạnh phúc!
+                        </p>
+                        @foreach ($list_evas as $eva)
+                        <div class="media">
+                            <img class="avaUser" src="{{asset($eva->avatar)}}" alt="..." class="img-thumbnail">
+                            <div class="media-body" style="margin-left: 25px">
+                                <h1 style="font-size: 20px; font-weight: bold; color: #fff; text-align:left">{{ $eva->fullName }}</h1>
+                                <p style="font-size: 14px; text-align:left">{{ $eva->createdDate }}</p>
+                                <p style="font-size: 16px; text-align:left; color: rgb(255, 253, 232)">{{ $eva->content }}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        <div class="d-flex justify-content-center">
+                            {{ $list_evas->links() }}
+                        </div>
+                        <form action="{{route('send_comment')}}" method="post">
+                            @csrf
+                            <div class="form-group shadow-textarea">
+                                <h2 for="exampleFormControlTextarea1" style="margin-top: 30px; color: #FEB700">NHẬP ĐÁNH GIÁ CỦA BẠN:</h2>
+                                <textarea style="color: #fff !important" class="form-control z-depth-1" name="comment_content" placeholder="Nội dung đánh giá..." rows="2"></textarea>
+                                <b>Đánh giá sao: </b>
+                                <div id="cate-rating" class="cate-rating">
+                                    <div class="stars">
+                                        <a id="star-1" class="star">
+                                            <span class="glyphicon glyphicon-star"></span>
+                                        </a>
+                                        <a id="star-2" class="star"><span class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-3" class="star"><span class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-4" class="star"><span class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-5" class="star"><span class="glyphicon glyphicon-star"></span></a>
+                                        <input type="hidden" name="numberStar" id="numberStar">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-warning send-comment">Gửi đánh giá</button>
+                            <div id="notify_comment"></div>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
 
         <section class="ftco-section">
             <div class="container">
@@ -393,7 +482,7 @@
                         <form action="#" class="appointment-form">
                             <div class="d-md-flex">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Họ và tên">
+                                    <input style="text-size: 20px" type="text" class="form-control" placeholder="Họ và tên">
                                 </div>
                             </div>
                             <div class="d-me-flex">
@@ -413,8 +502,63 @@
                 </div>
             </div>
         </section>
-
-
-
-
     @endsection
+    @section('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*
+              * Hiệu ứng khi rê chuột lên ngôi sao
+              */
+            $('a.star').mouseenter(function() {
+                if ($('#cate-rating').hasClass('rating-ok') == false) {
+                    var eID = $(this).attr('id');
+                    eID = eID.split('-').splice(-1);
+                    $('a.star').removeClass('vote-active');
+                    for (var i = 1; i <= eID; i++) {
+                        $('#star-' + i + ' span').addClass('vote-hover');
+                    }
+                }
+            }).mouseleave(function() {
+                if ($('#cate-rating').hasClass('rating-ok') == false) {
+                    $('span').removeClass('vote-hover');
+                }
+            });
+    
+            /*
+             * Sự kiện khi cho điểm
+             */
+            $('a.star').click(function() {
+                if ($('#cate-rating').hasClass('rating-ok') == false) {
+                    var eID = $(this).attr('id');
+                    eID = eID.split('-').splice(-1).toString();
+                    for (var i = 1; i <= eID; i++) {
+                        $('#star-' + i).addClass('vote-active');
+                    }
+                    //$('p#vote-desc').html('<span class="blue">' + eID + '</span>');
+                    $('#numberStar').val(eID);
+                    $('#cate-rating').addClass('rating-ok');
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.send-comment').click(function(){
+                var numberStar =  $('#numberStar').val();
+                var comment_content = $('.comment_content').val();
+                //var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url:"{{route('send_comment')}}",
+                    method: "POST",
+                    data:{comment_content:comment_content, numberStar:numberStar},
+                    success:function(data){
+                        $('#notifiy_comment').html('<p class="text text-success">Thêm bình luận thành công!</p>')
+                    }
+                })
+            })
+        });
+    
+    </script>
+    @endsection
+
