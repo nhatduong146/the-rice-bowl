@@ -360,7 +360,7 @@
                         </p>
                         @foreach ($list_evas as $eva)
                         <div class="media">
-                            <img class="avaUser" src="{{asset($eva->avatar)}}" alt="..." class="img-thumbnail">
+                            <img class="avaUser" src="{{asset('public/front-end/images/'.$eva->avatarUrl)}}" alt="..." class="img-thumbnail">
                             <div class="media-body" style="margin-left: 25px">
                                 <h1 style="font-size: 20px; font-weight: bold; color: #fff; text-align:left">{{ $eva->fullName }}</h1>
                                 <p style="font-size: 14px; text-align:left">{{ $eva->createdDate }}</p>
@@ -400,75 +400,6 @@
                 
             </div>
         </section>
-
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section ftco-animate text-center">
-                        <h2 class="mb-4">BÀI VIẾT</h2>
-                        <p>Cùng điểm qua một chút những blog hay được nhiều nhà báo viết về chúng tôi trong 20 năm vừa qua
-                        </p>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20"
-                                style="background-image: url({{ asset('public/front-end/images/anhFood12.jpg') }});">
-                            </a>
-                            <div class="text py-4 d-block">
-                                <div class="meta">
-                                    <div><a href="#">8 tháng 10, 2021</a></div>
-                                    <div><a href="#">Nguyễn Minh</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-                                    </div>
-                                </div>
-                                <h3 class="heading mt-2"><a href="#">Món ăn tuyệt hảo</a></h3>
-                                <p>The Rice Bowl restaurant - Nhà hàng nổi tiếng với vô số món ăn Châu Á kết hợp phương Đông
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20"
-                                style="background-image: url({{ asset('public/front-end/images/anhDV6.jpg') }});">
-                            </a>
-                            <div class="text py-4 d-block">
-                                <div class="meta">
-                                    <div><a href="#">9 tháng 11, 2021</a></div>
-                                    <div><a href="#">Lan Anh</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 6</a>
-                                    </div>
-                                </div>
-                                <h3 class="heading mt-2"><a href="#">Phong cách độc đáo</a></h3>
-                                <p>Không gian rộng lớn chính là thứ đã quyết định giữa chân khách hàng bốn phương đến nhà
-                                    hàng Rice Bowl</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 d-flex ftco-animate">
-                        <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20"
-                                style="background-image: url({{ asset('public/front-end/images/anhDV12.jpg') }});">
-                            </a>
-                            <div class="text py-4 d-block">
-                                <div class="meta">
-                                    <div><a href="#">9 tháng 12, 2021</a></div>
-                                    <div><a href="#">Bùi Thịnh</a></div>
-                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 9</a>
-                                    </div>
-                                </div>
-                                <h3 class="heading mt-2"><a href="#">The Delicious Pizza</a></h3>
-                                <p>Sự dịu dàng, sự đằm thắm là điều Rice Bowl chúng tôi muốn mang đến cho một tiệc cưới
-                                    tuyệt đẹp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <section class="ftco-appointment">
             <div class="overlay"></div>

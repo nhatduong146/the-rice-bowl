@@ -7,7 +7,7 @@ use DB;
 
 class EvaluateModel extends Model
 {
-    protected $table = "evaluate";
+    protected $table = "evaluates";
     public $timestamps = false;
     protected $fillale = [
         'userID', 'content', 'numberStar', 'createdDate'

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,9 +31,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $evas = DB::table('evaluate')
-            ->join('users', 'evaluate.userID', '=', 'users.id')
-            ->select('users.fullName','createdDate', 'numberStar', 'content', 'avatar')
+        $evas = DB::table('evaluates')
+            ->join('users', 'evaluates.userID', '=', 'users.id')
+            ->select('users.fullName','createdDate', 'numberStar', 'content', 'avatarUrl')
             ->orderBy('createdDate', 'desc')
             ->paginate(2);
         if(isset(Auth::user()->email)) {

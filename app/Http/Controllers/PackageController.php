@@ -51,6 +51,7 @@ class PackageController extends Controller
     public function show($id)
     {
         //
+
         $packages = Package::Where('serviceId', $id)->get();
 
         foreach ($packages as $package) {
@@ -70,9 +71,10 @@ class PackageController extends Controller
             }
         }
 
-
-        return view('package')->with('packages', $packages)
-            ->with('menus', $menus);
+        return view('package')->with([
+            'packages' => $packages,
+            'menus' => $menus
+        ]);
     }
 
     /**
@@ -115,4 +117,6 @@ class PackageController extends Controller
 
         return view('offerDetail')->with('package', $package);
     }
+
+    
 }
