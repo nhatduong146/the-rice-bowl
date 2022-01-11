@@ -11,4 +11,8 @@ class OrderFood extends Model
     protected $fillable = [
         'orderId', 'foodId'
     ];
+
+    public function food() {
+        return $this->belongsTo('App\Model\Food');
+    }
 }

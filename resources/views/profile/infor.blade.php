@@ -10,28 +10,28 @@
   @csrf
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
-      <label for="fullName" style="font-size: 18px">Họ và tên</label>
+      <label for="fullName" style="font-size: 18px; color: #80817d">Họ và tên</label>
       <input style="font-size: 18px; color: #fff !important;" type="text" class="form-control" id="fullName" placeholder="Nhập họ và tên" 
                   value="{{ $user->fullName }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
-      <label for="eMail" style="font-size: 18px">Email</label>
+      <label for="eMail" style="font-size: 18px; color: #80817d">Email</label>
       <input style="font-size: 18px; color: #fff !important;" type="email" class="form-control" id="email" placeholder="Nhập email" 
                   value="{{ $user->email }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
-      <label for="phone" style="font-size: 18px">Số điện thoại</label>
+      <label for="phone" style="font-size: 18px; color: #80817d">Số điện thoại</label>
       <input  style="font-size: 18px; color: #fff !important;" type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại"
                   value="{{ $user->phone }}">
     </div>
   </div>
   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
     <div class="form-group">
-      <label for="website" style="font-size: 18px">Ngày sinh</label>
+      <label for="website" style="font-size: 18px; color: #80817d">Ngày sinh</label>
       <input style="font-size: 18px; color: #fff !important;" type="url" class="form-control" id="dob" placeholder="Nhập ngày sinh" 
                   value="{{ $user->dob }}">
     </div>
@@ -39,11 +39,11 @@
 </div>
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
-    <h6 class="mb-3 text-primary" style="font-size: 20px">Địa chỉ</h6>
+    <h6 class="mb-3 text-primary" style="font-size: 20px; color: #80817d">Địa chỉ</h6>
   </div>
   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
     <div class="form-group">
-      <label for="Street" style="font-size: 18px">Số nhà</label>
+      <label for="Street" style="font-size: 18px; color: #80817d">Số nhà</label>
       <input style="font-size: 18px; color: #fff !important;" type="name" class="form-control" id="houseNumber" placeholder="Nhập số nhà" 
                   value="{{ $user->houseNumber }}">
     </div>
@@ -122,8 +122,8 @@
 <div class="row gutters">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
     <div class="text-right">
-      <button type="button" id="btn-refresh" name="submit" class="btn btn-secondary">Hủy</button>
-      <button type="button" id="btn-update-infor-user" name="submit" class="btn btn-primary">Cập nhật</button>
+      <button type="button" id="btn-refresh" name="submit" class="btn btn-secondary" style="font-size: 16px; border-radius: 5px">Hủy</button>
+      <button type="button" id="btn-update-infor-user" name="submit" class="btn btn-primary" style="font-size: 16px; border-radius: 5px">Cập nhật</button>
     </div>
   </div>
 </div>

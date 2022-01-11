@@ -73,8 +73,10 @@ class RegisterController extends Controller
             'houseNumber' => 2,
             'street' => '',
             'villageId' => 2,
-            'roleId' => 1,
+            'roleId' => 2,
+            'avatarUrl' => '',
             'password' => Hash::make($data['password']),
+            'avatar' => ''
         ]);
     }
 }

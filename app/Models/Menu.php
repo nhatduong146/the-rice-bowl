@@ -21,4 +21,8 @@ class Menu extends Model
     {
         return $this->hasMany('App\Models\MenuFood');
     }
+
+    public function service() {
+        return $this->belongsTo('App\Models\Service');
+    }
 }

@@ -955,11 +955,12 @@ mark,
 
 .img-thumbnail {
     padding: 0.25rem;
-    background-color: #f8fafc;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    max-width: 100%;
-    height: auto;
+    background-color: #fff;
+    border: 0px solid #dee2e6;
+    border-radius: 75.25rem;
+    /* max-width: 8%; */
+    width: 88px;
+    height: 88px;
 }
 
 .figure {

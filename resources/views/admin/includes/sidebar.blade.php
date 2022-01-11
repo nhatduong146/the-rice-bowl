@@ -54,15 +54,15 @@
 
                     <li><a><i class="fa fa-cutlery"></i> Món ăn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Danh sách món ăn</a></li>
-                            <li><a href="index.html">Thêm món ăn</a></li>
+                            <li><a href="{{ URL::to('/admin/foodManagement') }}">Quản lý món ăn</a></li>
+                            {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
                     </li>
 
                     <li><a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Danh sách thực đơn</a></li>
-                            <li><a href="index.html">Thêm món ăn</a></li>
+                            <li><a href="{{URL::to('/admin/menuManagement')}}">Quản lý thực đơn</a></li>
+                            {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
                     </li>
 
@@ -75,8 +75,7 @@
 
                     <li><a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Danh sách thành viên</a></li>
-                            <li><a href="index.html">Thêm thành viên</a></li>
+                            <li><a href="{{URL::to('/admin/accountManagement')}}">Quản lý thành viên</a></li>
                         </ul>
                     </li>
 

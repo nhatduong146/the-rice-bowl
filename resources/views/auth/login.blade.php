@@ -6,6 +6,18 @@
 @endsection
 
 @section('content')
+<style>
+    .fb {
+        background-color: #3B5998;
+        color: white;
+}.twitter {
+        background-color: #55ACEE;
+        color: white;
+}.google {
+    background-color: #dd4b39;
+    color: white;
+    }
+</style>
     <div class="container-fluid">
         <div class="row">
             <div id="back">
@@ -113,13 +125,16 @@
                                 <button id="goRight" class="login off" name="signup"
                                     style="color: rgb(233, 188, 67)">Đăng
                                     ký</button>
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}"
-                                        style="color: rgb(233, 188, 67)">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                  <a href="{{URL::to('/login-facebook')}}" class="fb btn">
+                                    <i class="fa fa-facebook fa-fw"></i> Đằng nhập bằng Facebook
+                                  </a>
+                                  <a href="#" class="google btn">
+                                    <i class="fa fa-google fa-fw"></i> Đăng nhập bằng Google
+                                  </a>
+                                </div>
                         </div>
                     </div>
                 </div>

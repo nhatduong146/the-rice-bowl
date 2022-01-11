@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\District;
+use App\Models\Food;
+use App\Models\Order;
+use App\Models\OrderFood;
+use App\Models\OrderStatus;
 use App\Models\Province;
+use App\Models\Service;
 use App\Models\Village;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -14,7 +20,7 @@ class UserController extends Controller
 {
     public function index () {
 
-        $id = Session::get('id', null);
+        $id = Session::get('idUser', null);
         if($id != null) {
             $user = DB::table('users')->where('id', $id)->get()[0];
         }
@@ -38,11 +44,27 @@ class UserController extends Controller
     }
 
     public function history() {
-        $id = Session::get('id', null);
+        $id = Session::get('idUser', null);
         if($id != null) {
             $user = DB::table('users')->where('id', $id)->get()[0];
         }
-        return view('profile.historyOrder')->with('user', $user);
+        $orders = Order::where('userId', $id)->get();
+        foreach($orders as $order) {
+            $order->order_status = OrderStatus::where('id', $order->status)->first();
+            $order->services = Service::where('id', $order->serviceId)->first();
+
+            $order->totalCost = 0;
+            $order_foods = OrderFood::where('orderId', $order->id)->get();
+            foreach($order_foods as $order_food) {
+                $food = Food::where('id', $order_food->foodId)->first();
+                $order->totalCost += $food->price;
+            }
+            $order->totalCost *= $order->peopleNumber;
+        }
+        $i = 0;
+        return view('profile.historyOrder')->with('user', $user)
+                                            ->with('orders', $orders)
+                                            ->with('i', $i);
     }
 
     public function updateInfor(Request $request) {
