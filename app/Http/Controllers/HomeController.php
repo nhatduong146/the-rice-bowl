@@ -34,7 +34,7 @@ class HomeController extends Controller
         if(isset(Auth::user()->email)) {
             $email = Auth::user()->email;
             $user = DB::table('users')->where('email', $email)->first();
-            Session::put('id', $user->id);  
+            Session::put('idUser', $user->id);  
         }
         return view('home');
     }

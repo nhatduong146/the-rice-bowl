@@ -11,6 +11,7 @@ use App\Models\Criteria;
 use App\Models\Food;
 use App\Models\FoodCategory;
 use App\Models\MenuFood;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceController extends Controller
@@ -91,7 +92,7 @@ class ServiceController extends Controller
 
         $foods = Food::all();
 
-
+        Session::put('serviceId', $id);
         return view('package')->with('packages', $packages)
             ->with('menus', $menus)
             ->with('foods', $foods)

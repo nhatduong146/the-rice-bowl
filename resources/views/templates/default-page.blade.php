@@ -45,7 +45,7 @@
         src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
         integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
         crossorigin="anonymous"></script>
-
+    <script src="{{ asset('public/front-end/js/notify.min.js') }}"></script>
     @yield('css')
     @yield('script')
 </head>
@@ -92,43 +92,7 @@
     @yield('js')
 
     <script>
-        paypal.Button.render({
-            // Configure environment
-            env: 'sandbox',
-            client: {
-                sandbox: 'AeRp7Afqa-rfLMVHrUPL8-aMcfmKLt8EAArheOUkMwFyLuf3sALgxG7K3WhJ-fy_aZanCTeU-BBQQEG0',
-                production: 'demo_production_client_id'
-            },
-            // Customize button (optional)
-            locale: 'en_US',
-            style: {
-                size: 'small',
-                color: 'gold',
-                shape: 'pill',
-            },
-
-            // Enable Pay Now checkout flow (optional)
-            commit: true,
-
-            // Set up a payment
-            payment: function(data, actions) {
-                return actions.payment.create({
-                    transactions: [{
-                        amount: {
-                            total: '0.01',
-                            currency: 'USD'
-                        }
-                    }]
-                });
-            },
-            // Execute the payment
-            onAuthorize: function(data, actions) {
-                return actions.payment.execute().then(function() {
-                    // Show a confirmation message to the buyer
-                    window.alert('Thank you for your purchase!');
-                });
-            }
-        }, '#paypal-button');
+        
     </script>
 </body>
 

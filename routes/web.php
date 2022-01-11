@@ -48,6 +48,12 @@ Route::resource('/order', 'OrderController');
 
 Route::post('/order-create', 'OrderController@createOrder')->name('createOrder');
 
+Route::post('/updateStatus/{id}', 'OrderController@updateStatus')->name('updateStatus');
+
+// Route::get('/updateStatus', 'OrderController@updateStatus')->name('updateStatus');
+
+Route::get('/cart/{id}', 'OrderController@getCart')->name('getOrder');
+
 Route::get('/profile/infor', 'UserController@index')->name('profile');
 
 Route::get('/profile/history', 'UserController@history')->name('history');
@@ -66,7 +72,7 @@ Route::post('/change-avatar', 'UserController@updateAvatar')->name('updateAvatar
 //admin
 Route::get('/admin/home', 'Admin\AdminController@index')->name('admin');
 
-Route::get('/admin/orderManagement', 'Admin\OrderController@index')->name('orderManagement');
+
 
 Route::get('/admin/form-advanced', function () {
     return view('admin.form_advanced');
@@ -132,3 +138,31 @@ Route::post('/remove-food', 'FoodController@removeFood')->name('removeFood');
 Route::post('/init-session', 'FoodController@initSession')->name('initSession');
 
 Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');
+
+
+//Food Management
+Route::get('/admin/foodManagement', 'Admin\FoodController@index')->name('foodManagement');
+
+Route::get('/admin/add-food', 'Admin\FoodController@create')->name('createFood');
+
+Route::post('/admin/add-food', 'Admin\FoodController@store')->name('add-food');
+
+Route::get('/admin/edit-food/{id}', 'Admin\FoodController@edit');
+
+Route::post('/admin/update-food/{id}', 'Admin\FoodController@update');
+
+Route::get('/admin/delete-food/{id}', 'Admin\FoodController@destroy');
+
+//Menu Management
+Route::get('/admin/menuManagement', 'Admin\MenuController@index');
+
+//Account Management
+Route::get('/admin/accountManagement', 'Admin\AccountController@index');
+
+//Order Management
+Route::get('/admin/orderManagement', 'Admin\OrderController@index')->name('orderManagement');
+
+Route::get('/admin/confirmOrder/{id}', 'Admin\OrderController@viewDetail');
+
+Route::post('/admin/confirmOrder/{id}', 'Admin\OrderController@confirmOrder');
+

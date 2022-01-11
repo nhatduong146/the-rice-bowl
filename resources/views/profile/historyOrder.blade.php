@@ -7,7 +7,7 @@
       <div class="col-12">
         <table class="table-history w-100" id="table-history-order">
           <thead>
-              <tr class="headings text-center " style="font-size: 20px">
+              <tr class="headings text-center " style="font-size: 20px; color: #fff">
                   <th class="column-title" style="width: 10%">STT </th>
                   <th class="column-title" style="width: 18.75%">Loại dịch vụ </th>
                   <th class="column-title" style="width: 18.75%">Ngày đặt </th>
@@ -16,17 +16,20 @@
                   <th class="column-title" style="width: 15%">Hành động </th>
               </tr>
           </thead>
-          <tbody class="text-center" style="font-size: 18px">
-              <tr class="even pointer">
-                  <td class=" ">1</td>
-                  <td class=" ">2</td>
-                  <td class=" ">3</td>
-                  <td class=" ">4</td>
-                  <td class=" ">5</td>
-                  <td class=" last">
-                      <button class="btn btn-danger"
-                      onclick="window.location.href = '' ">Xem chi tiet</button></td>
-              </tr>
+          <tbody class="text-center" style="font-size: 18px; color: #ccc">
+            @foreach ($orders as $order)
+                <tr class="even pointer">
+                    <td class=" ">{{ ++$i }}</td>
+                    <td class=" ">{{ $order->services->name }}</td>
+                    <td class=" ">{{ $order->organizationDate }}</td>
+                    <td class=" ">{{ number_format($order->totalCost, 0).' VNĐ' }}</td>
+                    <td class=" ">{{ $order->order_status->name }}</td>
+                    <td class=" last">
+                        <button class="btn btn-info" style="border-radius: 5px"
+                        onclick="window.location.href = '{{ URL::to('/cart/'.$order->id) }}' ">Xem chi tiet</button></td>
+                </tr>
+            @endforeach
+              
           </tbody>
       </table>
       </div>

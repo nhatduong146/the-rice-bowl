@@ -35,7 +35,7 @@
           text-align: center;
       }
       .card {
-          background: #272E48;
+          background: #262836;
           -webkit-border-radius: 5px;
           -moz-border-radius: 5px;
           border-radius: 5px;
@@ -72,20 +72,20 @@
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
       <div class="card h-100">
         <div class="card-body">
-          <div class="account-settings">
-            <div class="user-profile">
-              <div class="user-avatar">
-                <img src="{{ asset('public/front-end/images/' .$user->avatarUrl) }}" alt="Maxwell Admin">
+          <div class="account-s ettings">
+            <div class="user-profile text-center">
+              <div class="user-avatar d-flex justify-content-center">
+                <img src="{{ asset('public/front-end/images/' .$user->avatarUrl) }}" alt="Maxwell Admin" width="90px" height="90px" style="border-radius: 100px;">
                 
               </div>
-              <div class="change-avatar">
+              <div class="change-avatar d-flex justify-content-center" >
                 <input type="file" name="avatar_image" id="avatar_image" style="opacity: 0; display: none">
                 <label for="avatar_image">
-                  <p  class="btn btn-primary" id="btn-change-avatar">Upload avatar</p>
+                  <p  class="btn btn-primary" id="btn-change-avatar" style="display: none">Upload avatar</p>
                 </label>
               </div>
-              <h5 class="user-name">Nguyễn Đình Khoa</h5>
-              <h6 class="user-email">nguyendinhkhoa000@gmail.com</h6>
+              <h5 class="user-name">{{ $user->fullName }}</h5>
+              <h6 class="user-email">{{ $user->email }}</h6>
               <div class="sidebar mt-5">
                 <div class="infor">
                   <a href="{{ route('profile') }}">Thông tin cá nhân</a>

@@ -10,7 +10,7 @@ class Order extends Model
 
     protected $fillable = [
         'userId', 'peopleNumber', 'orderDate', 'organizationDate', 'note',
-        'paymentId', 'status', 'serviceId', 'menuId', 'packageId'
+        'paymentId', 'status', 'serviceId', 'packageId'
     ];
 
     public function PaymentMethod() {

@@ -3297,6 +3297,7 @@ input[type="button"].btn-block {
 
 .dropdown-menu {
     position: absolute;
+    width: 100%;
     top: 100%;
     left: 0;
     z-index: 1000;
@@ -3306,10 +3307,10 @@ input[type="button"].btn-block {
     padding: 0.5rem 0;
     margin: 0.125rem 0 0;
     font-size: 1rem;
-    color: #212529;
+    color: #fff;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #121618;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
@@ -3435,7 +3436,7 @@ input[type="button"].btn-block {
     padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #fff;
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
@@ -9506,7 +9507,7 @@ h5,
     padding-bottom: 0.9rem;
     padding-left: 0;
     padding-right: 0;
-    color: rgba(255, 255, 255, 0.9);
+    color: #fff !important;
     font-weight: 400;
     opacity: 1 !important;
 }
@@ -9516,7 +9517,7 @@ h5,
         padding-bottom: 1.5rem;
         padding-left: 20px;
         padding-right: 20px;
-        color: rgba(255, 255, 255, 0.7);
+        color: #fff;
     }
 }
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
@@ -9524,7 +9525,8 @@ h5,
 }
 .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
     border: none;
-    background: #fff;
+    background: #121618;
+    color: #fff;
     -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
     -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
     box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
