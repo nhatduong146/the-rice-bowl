@@ -123,6 +123,7 @@ Route::get('/admin/tables-dynamic', function () {
 Route::get('/order-create', 'OrderController@backToHomePage');
 
 Route::post('/showMenu', 'MenuController@showMenuById')->name('showMenuById');
+
 Route::post('/search', 'FoodController@getSearchAjax')->name('search');
 
 Route::post('/add-food', 'FoodController@addFood')->name('addFood');
@@ -132,3 +133,16 @@ Route::post('/remove-food', 'FoodController@removeFood')->name('removeFood');
 Route::post('/init-session', 'FoodController@initSession')->name('initSession');
 
 Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');
+
+
+Route::get('admin/service/list', 'ServiceController@listOfService');
+
+Route::get('/admin/service/add', 'ServiceController@create');
+
+Route::post('/admin/service/create', 'ServiceController@store');
+
+Route::get('/admin/service/update/{id}', 'ServiceController@edit');
+
+Route::post('/admin/service/update/{id}', 'ServiceController@update');
+
+Route::get('/admin/service/delete/{id}', 'ServiceController@delete');
