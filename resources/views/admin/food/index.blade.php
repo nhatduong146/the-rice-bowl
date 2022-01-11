@@ -45,7 +45,7 @@
                           <tr class="even pointer">
                               <td class="align-items-center ">{{ $food->id }}</td>
                               <td class="align-items-center ">{{ $food->name }}</td>
-                              <td class="align-items-center ">{{ number_format($food->price, 0) }}</td>
+                              <td class="align-items-center ">{{ number_format($food->price, 0) }} đ</td>
                               <td class="align-items-center ">
                                 <img src="{{ asset($food->image) }}" width="70px" height="70px" alt="">
                               </td>
