@@ -84,8 +84,8 @@
                   <p  class="btn btn-primary" id="btn-change-avatar" style="display: none">Upload avatar</p>
                 </label>
               </div>
-              <h5 class="user-name">{{ $user->fullName }}</h5>
-              <h6 class="user-email">{{ $user->email }}</h6>
+              <h5 class="user-name" style="font-size: 18px">{{ $user->fullName }}</h5>
+              <h6 class="user-email" style="font-size: 14px">{{ $user->email }}</h6>
               <div class="sidebar mt-5">
                 <div class="infor">
                   <a href="{{ route('profile') }}">Thông tin cá nhân</a>

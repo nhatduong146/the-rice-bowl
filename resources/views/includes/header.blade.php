@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light m-0 p-4" id="ftco-navbar">
     <div class="container">
         <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>The Rice
             Bowl<br><small>Restaurant</small></a>
@@ -28,10 +28,10 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->fullName }} <span class="caret"></span>
+                            {{ Auth::user()->fullName }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="font-size: 16px">
                             @if (Auth::user()->fullName == 'admin')
                                 {{-- <a class="nav-link" href="{{ route('admin') }}">{{ __('Trang quản trị') }}</a> --}}
                                 <a class="dropdown-item" href="{{ route('admin') }}" onclick="event.preventDefault();

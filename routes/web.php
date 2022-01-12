@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,10 @@ Route::get('/login-form', function () {
     return view('auth.login');
 });
 
+//Login facebook
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 // Route::get('/offer/{id}', 'PackageController@show');
 
 Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
@@ -38,19 +43,11 @@ Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
 
 Auth::routes();
 
-// Route::resource('/servicePackage', 'ServicePackageController');
-
-// Route::resource('/service', 'ServiceController');
-
-// Route::resource('/package', 'PackageController');
-
 Route::resource('/order', 'OrderController');
 
 Route::post('/order-create', 'OrderController@createOrder')->name('createOrder');
 
 Route::post('/updateStatus/{id}', 'OrderController@updateStatus')->name('updateStatus');
-
-// Route::get('/updateStatus', 'OrderController@updateStatus')->name('updateStatus');
 
 Route::get('/cart/{id}', 'OrderController@getCart')->name('getOrder');
 
@@ -79,8 +76,8 @@ Route::get('/admin/form-advanced', function () {
 });
 
 //Login facebook
-Route::get('/login-facebook','SocialController@login_facebook');
-Route::get('/login/callback','SocialController@callback_facebook');
+Route::get('/login-facebook', 'SocialController@login_facebook');
+Route::get('/login/callback', 'SocialController@callback_facebook');
 
 
 Route::get('/admin/form-validation', function () {
@@ -131,11 +128,14 @@ Route::get('/admin/tables-dynamic', function () {
     return view('admin.tables_dynamic');
 });
 
+
+
 Route::get('/order-create', 'OrderController@backToHomePage');
 
 Route::get('/evaluate', 'EvaluateController@index')->name('list_evaluate');
 Route::post('/evaluate', 'EvaluateController@send_comment')->name('send_comment');
 Route::post('/showMenu', 'MenuController@showMenuById')->name('showMenuById');
+
 Route::post('/search', 'FoodController@getSearchAjax')->name('search');
 
 Route::post('/add-food', 'FoodController@addFood')->name('addFood');
@@ -146,6 +146,19 @@ Route::post('/init-session', 'FoodController@initSession')->name('initSession');
 
 Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');
 
+
+//service management
+Route::get('admin/service/list', 'ServiceController@listOfService');
+
+Route::get('/admin/service/add', 'ServiceController@create');
+
+Route::post('/admin/service/create', 'ServiceController@store');
+
+Route::get('/admin/service/update/{id}', 'ServiceController@edit');
+
+Route::post('/admin/service/update/{id}', 'ServiceController@update');
+
+Route::get('/admin/service/delete/{id}', 'ServiceController@delete');
 
 //Food Management
 Route::get('/admin/foodManagement', 'Admin\FoodController@index')->name('foodManagement');
@@ -173,8 +186,17 @@ Route::get('/admin/confirmOrder/{id}', 'Admin\OrderController@viewDetail');
 
 Route::post('/admin/confirmOrder/{id}', 'Admin\OrderController@confirmOrder');
 
+//package management
+Route::get('admin/package/list', 'PackageController@index');
+
+//information restaurant
+Route::get('admin/information', 'HomeController@show');
+
+Route::post('admin/information/update/{id}', 'HomeController@update');
+
+
 //Statistic
 Route::post('/filter-by-date', 'AdminController@filter_by_date');
 Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
 // Route::get('/filter-by-date1', 'AdminController@filter_by_date1');
-Route::get('/home', 'AdminController@dashboard');
+// Route::get('/home', 'AdminController@dashboard');
