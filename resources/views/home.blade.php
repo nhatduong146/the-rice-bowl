@@ -22,19 +22,19 @@
 	}
 
 	a.star span.vote-hover {
-    	color: #fffc68;
+    	color: #fffb1f;
 	}
 
 	a.star span:active {
-    	color: #fffb20;
+    	color: #ffd000;
 	}
 
 	a.star span.vote-active {
-    	color: #ffee00;
+    	color: #ffd000;
 	}
 
 	.blue {
-		color: #ffe600;
+		color: #ffd000;
 	}
 </style>
 
@@ -129,7 +129,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4" style="font-size: 35px">DỊCH VỤ CỦA CHÚNG TÔI</h2>
-                    <p style="font-size: 25px">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực hóa ý tưởng của bạn về một buổi tiệc,
+                    <p style="font-size: 22px">Hãy để The Rice Bowl Restaurant đáp ứng yêu cầu và hiện thực hóa ý tưởng của bạn về một buổi tiệc,
                         một đám cưới,....</p>
                 </div>
             </div>
@@ -178,7 +178,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">MENU ĐA DẠNG</h2>
-                    <p>Hãy để The Rice Bowl Restaurant đánh thức vị giác của bạn!</p>
+                    <p style="font-size: 22px">Hãy để The Rice Bowl Restaurant đánh thức vị giác của bạn!</p>
                 </div>
             </div>
         </div>
@@ -312,7 +312,7 @@
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-pizza-1"></span></div>
                                         <strong class="number" data-number="100">0</strong>
-                                        <span>Đơn đặt hàng mỗi ngày</span>
+                                        <span style="font-size: 20px">Đơn đặt hàng mỗi ngày</span>
                                     </div>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-medal"></span></div>
                                         <strong class="number" data-number="25">0</strong>
-                                        <span>Chứng nhận quốc tế</span>
+                                        <span style="font-size: 20px">Chứng nhận quốc tế</span>
                                     </div>
                                 </div>
                             </div>
@@ -330,7 +330,7 @@
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-laugh"></span></div>
                                         <strong class="number" data-number="10567">0</strong>
-                                        <span>Số lượng khách hàng tháng</span>
+                                        <span style="font-size: 20px">Số lượng khách hàng</span>
                                     </div>
                                 </div>
                             </div>
@@ -339,7 +339,7 @@
                                     <div class="text">
                                         <div class="icon"><span class="flaticon-chef"></span></div>
                                         <strong class="number" data-number="100">0</strong>
-                                        <span>Đầu bếp hàng đầu</span>
+                                        <span style="font-size: 20px">Đầu bếp hàng đầu</span>
                                     </div>
                                 </div>
                             </div>
@@ -354,17 +354,14 @@
                 <div class="row justify-content-center">
                     <div class="col-sm heading-section ftco-animate text-center">
                         <h2 class="mb-4" style="color: #FEB700">ĐÁNH GIÁ TỪ PHÍA KHÁCH HÀNG</h2>
-                        <p style="color: #FFE39C">Những đóng góp quý giá của quý khách là động lực để chúng tôi cố gắng hoàn thiện hơn!
-                        </p>
-                        <p style="color: #FFE39C">Bạn ngon miệng - Chúng tôi hạnh phúc!
-                        </p>
                         @foreach ($list_evas as $eva)
-                        <div class="media">
-                            <img class="avaUser" src="{{asset('public/front-end/images/'.$eva->avatarUrl)}}" alt="..." class="img-thumbnail">
+                        <div class="media" style="margin-top: 50px">
+                            <img src="{{asset('public/front-end/images/'.$eva->avatarUrl)}}" alt="Avatar" class="avaUser">
+                            {{-- <img class="avaUser" src="{{asset('public/front-end/images/'.$eva->avatarUrl)}}" alt="..." class="img-thumbnail"> --}}
                             <div class="media-body" style="margin-left: 25px">
-                                <h1 style="font-size: 20px; font-weight: bold; color: #fff; text-align:left">{{ $eva->fullName }}</h1>
-                                <p style="font-size: 14px; text-align:left">{{ $eva->createdDate }}</p>
-                                <p style="font-size: 16px; text-align:left; color: rgb(255, 253, 232)">{{ $eva->content }}</p>
+                                <h1 style="font-size: 20px; font-weight: bold; color: rgb(255, 237, 75); text-align:left">{{ $eva->fullName }}</h1>
+                                <p style="font-size: 16px; text-align:left">{{ $eva->createdDate }}</p>
+                                <p style="font-size: 20px; text-align:left; color: rgb(255, 252, 225)">{{ $eva->content }}</p>
                             </div>
                         </div>
                         @endforeach
@@ -375,9 +372,10 @@
                             @csrf
                             <div class="form-group shadow-textarea">
                                 <h2 for="exampleFormControlTextarea1" style="margin-top: 30px; color: #FEB700">NHẬP ĐÁNH GIÁ CỦA BẠN:</h2>
-                                <textarea style="color: #fff !important" class="form-control z-depth-1" name="comment_content" placeholder="Nội dung đánh giá..." rows="2"></textarea>
-                                <b>Đánh giá sao: </b>
-                                <div id="cate-rating" class="cate-rating">
+                                <p style="color: #FFE39C; font-size:22px">Những đóng góp quý giá của quý khách là động lực để chúng tôi cố gắng hoàn thiện hơn!
+                                </p>
+                                <textarea style="color: #fff !important; font-size: 20px; margin-top: 50px" class="form-control" name="comment_content" placeholder="Nhập đánh giá của bạn để có trải nghiệm tốt hơn..." rows="2"></textarea>
+                                <div id="cate-rating" class="cate-rating" style="text-align: left; margin-top: 20px">
                                     <div class="stars">
                                         <a id="star-1" class="star">
                                             <span class="glyphicon glyphicon-star"></span>
@@ -391,7 +389,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-warning send-comment">Gửi đánh giá</button>
+                            <button type="submit" class="btn btn-warning send-comment" style="width: 150px; height: 40px; font-size : 18px">Gửi đánh giá</button>
                             <div id="notify_comment"></div>
                         </form>
                     </div>

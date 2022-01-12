@@ -50,8 +50,8 @@
         </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="{{ asset('public/front-end/admin/vendors/jquery/dist/jquery.min.js') }}"></script>
+     <!-- jQuery -->
+    <script src="{{ asset('public/front-end/admin/vendors/jquery/dist/jquery.min.js') }}"></script> 
     <!-- Bootstrap -->
     <script src="{{ asset('public/front-end/admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <!-- FastClick -->
@@ -68,7 +68,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('public/front-end/admin/build/js/custom.min.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script> 
 
     @yield('js')
 </body>

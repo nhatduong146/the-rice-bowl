@@ -173,3 +173,8 @@ Route::get('/admin/confirmOrder/{id}', 'Admin\OrderController@viewDetail');
 
 Route::post('/admin/confirmOrder/{id}', 'Admin\OrderController@confirmOrder');
 
+//Statistic
+Route::post('/filter-by-date', 'AdminController@filter_by_date');
+Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
+// Route::get('/filter-by-date1', 'AdminController@filter_by_date1');
+Route::get('/home', 'AdminController@dashboard');
