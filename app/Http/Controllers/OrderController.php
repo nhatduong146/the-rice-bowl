@@ -9,6 +9,7 @@ use App\Models\PaymentMethod;
 use App\Models\MenuFood;
 use App\Models\Food;
 use App\Models\OrderFood;
+use App\Models\Service;
 use App\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Collection;
@@ -107,7 +108,7 @@ class OrderController extends Controller
      */
     public function createOrder(Request $request)
     {
-        if($request->note == null) {
+        if ($request->note == null) {
             $request->note = '';
         }
         $id = Session::get('idUser', 1);
@@ -122,18 +123,22 @@ class OrderController extends Controller
         $order->paymentId = 1;
         $order->userId = $user->id;
         $order->packageId = 0;
+        // $order->Service = Service::where('id', Session::get('serviceId', 0))->first();
         $order->save();
+        $order->service = Service::where('id', $order->serviceId)->first();
+
+
 
         Session::put('orderId', $order->id);
         $paymentMethods = PaymentMethod::all();
-        
 
-        if($request->menuId == -1) {    
+
+        if ($request->menuId == -1) {
             $foodIds = $request->session()->get('foodIds', null);
             $totalCost = 0;
             $foods = new Collection();
-            foreach($foodIds as $foodId) {
-                $food = Food::where('id', $foodId)->first();   
+            foreach ($foodIds as $foodId) {
+                $food = Food::where('id', $foodId)->first();
                 $foods->push($food);
                 $totalCost += $food->price;
 
@@ -142,15 +147,25 @@ class OrderController extends Controller
                 $order_food->foodId = $food->id;
                 $order_food->save();
             }
+
             $totalCost *= $request->peopleNumber;
+            // if (Session::get('serviceId') == null) {
+            //     $service = Service::where('id', Session::get('serviceId', 0))->first();
+
+            //     return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
+            //         ->with('totalCost', $totalCost)
+            //         ->with('user', $user)
+            //         ->with('status', $order->status)
+            //         ->with('service', $service);
+            // }
 
             return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
-                                    ->with('totalCost', $totalCost)
-                                    ->with('user', $user)
-                                    ->with('status', $order->status);
+                ->with('totalCost', $totalCost)
+                ->with('user', $user)
+                ->with('status', $order->status);
         } else {
             $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', Session::get('serviceId', 0))
-                                                                        ->first();
+                ->first();
 
             $menu->menuFoods = MenuFood::Where('menuId', $menu->id)->get();
             $totalCost = 0;
@@ -165,11 +180,12 @@ class OrderController extends Controller
 
             $totalCost *= $request->peopleNumber;
 
-            
+            $service = Service::where('id', Session::get('serviceId', 0))->first();
             return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
-                                    ->with('totalCost', $totalCost)
-                                    ->with('user', $user)
-                                    ->with('status', $order->status);
+                ->with('totalCost', $totalCost)
+                ->with('user', $user)
+                ->with('status', $order->status)
+                ->with('service', $service);
         }
 
 
@@ -178,12 +194,15 @@ class OrderController extends Controller
         //     ->with('totalCost', $totalCost);
     }
 
-    public function backToHomePage() {
+    public function backToHomePage()
+    {
         redirect('home');
     }
 
-    public function getCart($id) {
+    public function getCart($id)
+    {
         $order = Order::where('id', $id)->first();
+        $order->service = Service::where('id', $order->serviceId)->first();
         $paymentMethods = PaymentMethod::all();
         $id = Session::get('id', 1);
         $user = User::where('id', $id)->first();
@@ -193,7 +212,7 @@ class OrderController extends Controller
         $totalCost = 0;
         $order_foods = OrderFood::where('orderId', $id)->get();
         $foods = new Collection();
-        foreach($order_foods as $order_food) {
+        foreach ($order_foods as $order_food) {
             $food = Food::where('id', $order_food->foodId)->first();
             $foods->push($food);
             $totalCost += $food->price;
@@ -201,12 +220,13 @@ class OrderController extends Controller
         $totalCost *= $order->peopleNumber;
 
         return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
-                                    ->with('totalCost', $totalCost)
-                                    ->with('user', $user)
-                                    ->with('status', $order->status);
+            ->with('totalCost', $totalCost)
+            ->with('user', $user)
+            ->with('status', $order->status);
     }
 
-    public function updateStatus(Request $request, $id) {
+    public function updateStatus(Request $request, $id)
+    {
         // $id = Session::get('orderId', 1);
         $order = Order::where('id', $id)->first();
         $order->paymentId = $request->payment;
@@ -214,6 +234,6 @@ class OrderController extends Controller
         $order->update();
 
         // return redirect()->route('home');
-        return back()->with('status', 'Bạn đã thanh toán thành công!');
-    }   
+        return back()->with('status', 'Đơn hàng của bạn đã được duyệt. Nhân viên sẽ liên hệ bạn trong thời gian sớm nhất.');
+    }
 }

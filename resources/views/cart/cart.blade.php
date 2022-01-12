@@ -9,59 +9,12 @@
 @endsection
 @section('content')
 
-    {{-- <div class="card">
-    <div class="row">
-        <div class="col-md-8 cart">
-            <div class="title">
-                <div class="row">
-                    <div class="col">
-                        <h4><b>Shopping Cart</b></h4>
-                    </div>
-                    <div class="col align-self-center text-right text-muted">3 items</div>
-                </div>
-            </div>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
-                    <div class="col">
-                        <div class="row text-muted">Shirt</div>
-                        <div class="row">Cotton T-shirt</div>
-                    </div>
-                    <div class="col"> <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a> </div>
-                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                </div>
-            </div>
-            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-        </div>
-        <div class="col-md-4 summary">
-            <div>
-                <h5><b>Summary</b></h5>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col" style="padding-left:0;">ITEMS 3</div>
-                <div class="col text-right">&euro; 132.00</div>
-            </div>
-            <form>
-                <p>SHIPPING</p> <select>
-                    <option class="text-muted">Standard-Delivery- &euro;5.00</option>
-                </select>
-                <p>GIVE CODE</p> <input id="code" placeholder="Enter your code">
-            </form>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">&euro; 137.00</div>
-            </div> <button class="btn">CHECKOUT</button>
-        </div>
-    </div>
-</div> --}}
-
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="status">
+            <div class="col-12 m-0">
+                <div class="status" style="margin: 10px 0">
                     @if (session('status'))
-                        <h6 class="alert alert-success">{{ session('status') }}</h6>
+                        <h6 class="alert alert-success" style="font-size: 20px">{{ session('status') }}</h6>
                     @endif
                 </div>
             </div>
@@ -75,7 +28,7 @@
                         <div class="col-12 p-4" id="infor">
                             <h4 class="text-center">ĐƠN HÀNG CỦA BẠN</h4>
                             <span style="font-size: 20px; color:#fff;">Loại dịch vụ:</span>
-                            <span style="color: #fac564">Dịch vụ cưới</span>
+                            <span style="color: #fac564">{{ $order->service->name }}</span>
                             <br>
                             <span style="font-size: 20px; color:#fff;">Số lượng khách:</span>
                             <span style=" color: #fac564">{{ $order->peopleNumber }}</span>
@@ -97,7 +50,7 @@
                                             <div class="d-flex text align-items-center" style="margin-bottom: 35px">
                                                 <img src="{{ asset($mf->food->image) }}"
                                                     style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                                                 &nbsp;&nbsp;
                                                 <h3 style="background: none"><span>{{ $mf->food->name }}</h3>
                                                 <span
@@ -110,7 +63,7 @@
                                             <div class="d-flex text align-items-center" style="margin-bottom: 35px">
                                                 <img src="{{ asset($food->image) }}"
                                                     style=" border-radius: 100%;margin-top: -10px; height: 50px; width:50px;max-width: 50px; max-height: 50px;min-width: 50px; min-height: 50px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                box-shadow: 0 4px 8px 0 rgba(192, 151, 16, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
                                                 &nbsp;&nbsp;
                                                 <h3 style="background: none"><span>{{ $food->name }}</h3>
                                                 <span class="price">{{ number_format($food->price, 0) }}đ</span>

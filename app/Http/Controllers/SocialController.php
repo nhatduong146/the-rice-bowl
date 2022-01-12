@@ -3,59 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
-use App\Social; //sử dụng model Social
-use Socialite; //sử dụng Socialite
 use App\User; //sử dụng model Login
+use Illuminate\Support\Facades\File;
 
 class SocialController extends Controller
 {
-    public function login_facebook(){
-        return Socialite::driver('facebook')->redirect();
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->redirect();
     }
-    // 'username', 'email', 'password', 'phone',
-    //     'fullName', 'dob', 'houseNumber', 'street',
-    //     'villageId', 'roleId'
-    public function callback_facebook(){
-        $provider = Socialite::driver('facebook')->user();
-        $account = Social::where('provider','facebook')->where('provider_userID',$provider->getId())->first();
-        if($account){
-            //login in vao trang quan tri  
-            $account_name = User::where('id',$account->user)->first();
-            Session::put('admin_login',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id);
-            return redirect('/admin/dashboard')->with('message', 'Đăng nhập Admin thành công');
-        }else{
+    public function callback($provider)
+    {
+        $getInfo = Socialite::driver($provider)->user(); 
+        $user = $this->createUser($getInfo,$provider); 
+        auth()->login($user); 
+        
+        $fileContents = file_get_contents($getInfo->getAvatar());
+        File::put('public/front-end/images/' . $getInfo->getId() . ".jpg", $fileContents);
+        return redirect()->to('/home');
+    }
+    function createUser($getInfo, $provider){
+        $user = User::where('provider_id', $getInfo->id)->first();
+        if (!$user) {
+            $user = User::create([
+                'fullName'     => $getInfo->name,
+                'email'    => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id,
+                'username' => '',
+                'dob' => '07/09/2001',
+                'phone' => '',
+                'houseNumber' => 2,
+                'street' => '',
+                'villageId' => 49,
+                'roleId' => 2,
+                'avatarUrl' => $getInfo->getId() . ".jpg",
+                'avatar' => ''
 
-            $hang = new Social([
-                'provider_userID' => $provider->getId(),
-                'provider' => 'facebook'
             ]);
-
-            $orang = User::where('email',$provider->getEmail())->first();
-
-            if(!$orang){
-                $orang = Login::create([
-                    'username' => '',
-                    'email' => $provider->getEmail(),
-                    'password' => '',
-                    'phone' => '',
-                    'fullName' => $provider->getName(),
-                    'dob' => '',
-                    'houseNumber' => '',
-                    'street' => '',
-                    'villageId' => '',
-                    'roleId' => '2',
-                ]);
-            }
-            $hang->login()->associate($orang);
-            $hang->save();
-
-            $account_name = User::where('id',$account->user)->first();
-            Session::put('admin_login',$account_name->admin_name);
-            Session::put('admin_id',$account_name->admin_id);
-            return redirect('/admin/dashboard')->with('message', 'Đăng nhập Admin thành công');
-        } 
+        }
+        return $user;
     }
 
 }

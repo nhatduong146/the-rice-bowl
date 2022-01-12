@@ -42,9 +42,23 @@ class HomeController extends Controller
         if (isset(Auth::user()->email)) {
             $email = Auth::user()->email;
             $user = DB::table('users')->where('email', $email)->first();
+
             Session::put('idUser', $user->id);
-            return view('home')->with('list_evas', $evas)->with('restaurant', $restaurant);
+            $isOrder = DB::table('users')
+                ->join('orders', 'users.id', '=', 'orders.userID')
+                ->select('status')
+                ->where('status', 4)
+                ->where('userId', $user->id)
+                ->get();
+            // return json_encode($isOrder);
+            if ($isOrder->isEmpty()) {
+                Session::put('statusReview', 0);
+            } else {
+                Session::put('statusReview', 1);
+            }
         }
+        $statusReview = Session::get('statusReview', 0);
+        return view('home')->with('list_evas', $evas)->with('statusReview', $statusReview)->with('restaurant', $restaurant);
     }
 
     public function show()
