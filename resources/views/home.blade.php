@@ -348,7 +348,7 @@
                 </div>
             </div>
         </section>
-
+        @if ($statusReview == 1)
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -400,6 +400,10 @@
                 
             </div>
         </section>
+        @else
+            
+        @endif
+        
 
         <section class="ftco-appointment">
             <div class="overlay"></div>

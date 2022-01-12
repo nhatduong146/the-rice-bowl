@@ -9,6 +9,7 @@ use App\Models\PaymentMethod;
 use App\Models\MenuFood;
 use App\Models\Food;
 use App\Models\OrderFood;
+use App\Models\Service;
 use App\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Collection;
@@ -122,7 +123,10 @@ class OrderController extends Controller
         $order->paymentId = 1;
         $order->userId = $user->id;
         $order->packageId = 0;
+        // $order->Service = Service::where('id', Session::get('serviceId', 0))->first();
         $order->save();
+
+        
 
         Session::put('orderId', $order->id);
         $paymentMethods = PaymentMethod::all();
@@ -143,11 +147,12 @@ class OrderController extends Controller
                 $order_food->save();
             }
             $totalCost *= $request->peopleNumber;
-
+            $service = Service::where('id', Session::get('serviceId', 0))->first();
             return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('foods', $foods)
                                     ->with('totalCost', $totalCost)
                                     ->with('user', $user)
-                                    ->with('status', $order->status);
+                                    ->with('status', $order->status)
+                                    ->with('service', $service);
         } else {
             $menu = DB::table('menus')->where('id', $request->menuId)->where('serviceId', Session::get('serviceId', 0))
                                                                         ->first();
@@ -165,11 +170,12 @@ class OrderController extends Controller
 
             $totalCost *= $request->peopleNumber;
 
-            
+            $service = Service::where('id', Session::get('serviceId', 0))->first();
             return view('cart.cart')->with('order', $order)->with('paymentMethods', $paymentMethods)->with('menu', $menu)
                                     ->with('totalCost', $totalCost)
                                     ->with('user', $user)
-                                    ->with('status', $order->status);
+                                    ->with('status', $order->status)
+                                    ->with('service', $service);
         }
 
 

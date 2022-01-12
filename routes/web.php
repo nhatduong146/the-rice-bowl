@@ -31,6 +31,10 @@ Route::get('/login-form', function () {
     return view('auth.login');
 });
 
+//Login facebook
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 // Route::get('/offer/{id}', 'PackageController@show');
 
 Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
@@ -38,19 +42,11 @@ Route::get('/offer-detail/{id}', 'PackageController@offerDetail');
 
 Auth::routes();
 
-// Route::resource('/servicePackage', 'ServicePackageController');
-
-// Route::resource('/service', 'ServiceController');
-
-// Route::resource('/package', 'PackageController');
-
 Route::resource('/order', 'OrderController');
 
 Route::post('/order-create', 'OrderController@createOrder')->name('createOrder');
 
 Route::post('/updateStatus/{id}', 'OrderController@updateStatus')->name('updateStatus');
-
-// Route::get('/updateStatus', 'OrderController@updateStatus')->name('updateStatus');
 
 Route::get('/cart/{id}', 'OrderController@getCart')->name('getOrder');
 

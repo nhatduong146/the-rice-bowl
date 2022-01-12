@@ -21,4 +21,8 @@ class Service extends Model
     {
         return $this->hasMany('App\Models\Menu');
     }
+
+    public function order() {
+        return $this->hasMany('App\Models\Order');
+    }
 }
