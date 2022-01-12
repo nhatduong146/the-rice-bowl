@@ -128,7 +128,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                  <a href="{{URL::to('/login-facebook')}}" class="fb btn">
+                                  <a href="{{URL::to('/auth/redirect/facebook')}}" class="fb btn">
                                     <i class="fa fa-facebook fa-fw"></i> Đằng nhập bằng Facebook
                                   </a>
                                   <a href="#" class="google btn">

@@ -87,11 +87,11 @@
               <h5 class="user-name" style="font-size: 18px">{{ $user->fullName }}</h5>
               <h6 class="user-email" style="font-size: 14px">{{ $user->email }}</h6>
               <div class="sidebar mt-5">
-                <div class="infor">
+                <div class="infor" >
                   <a href="{{ route('profile') }}">Thông tin cá nhân</a>
                 </div>
 
-                <div class="history-order">
+                <div class="history-order" >
                   <a href="{{ route('history') }}">Lịch sử đặt hàng</a>
                 </div>
               </div>

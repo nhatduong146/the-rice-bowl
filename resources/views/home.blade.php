@@ -1,7 +1,7 @@
 @extends('templates.default-page')
 
 <style type="text/css">
-    .avaUser{
+    .avaUser {
         padding: 0.25rem;
         background-color: #fff;
         border: 0px solid #dee2e6;
@@ -10,16 +10,8 @@
         width: 88px;
         height: 88px;
     }
+
     div.stars {}
- 
-	a.star {
-    	font-size: 24px;
-    	/* color: #f0f1f4; */
-    	color: #fffc68 !important;
-    	cursor: pointer;
-    	line-height: 1;
-    	transition: all 0.1s ease;
-	}
 
 	a.star span.vote-hover {
     	color: #fffb1f;
@@ -40,10 +32,10 @@
 
 @section('content')
     <section class="home-slider owl-carousel img" style="background: linear-gradient(rgba(17, 30, 63, 0.9), rgba(112, 83, 15, 0.9)),
-                                        url({{ asset('public/front-end/images/anhFood1.jpg') }});
-                                        background-position: center center;
-                                        background-repeat: no-repeat;
-                                        background-size: cover;">
+                                                            url({{ asset('public/front-end/images/anhFood1.jpg') }});
+                                                            background-position: center center;
+                                                            background-repeat: no-repeat;
+                                                            background-size: cover;">
         <div class="slider-item">
             <div class="overlay"></div>
             <div class="container">
@@ -58,7 +50,7 @@
                                 class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">Xem Menu</a></p>
                     </div>
                     <div class="col-md-7 ftco-animate hero text-center text-lg-end overflow-hidden">
-                        <img src="{{ asset('public/front-end/images/hero.png') }}" class="img-fluid" alt="">
+                        <img src="{{ asset($restaurant->food_banner) }}" class="img-fluid" alt="">
                     </div>
 
                 </div>
@@ -89,7 +81,7 @@
                             <div class="icon"><span class="icon-clock-o"></span></div>
                             <div class="text">
                                 <h3>Phục vụ 24/7</h3>
-                                <p>7:00 am - 12:00 pm</p>
+                                <p>7:00 am - 10:00 pm</p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +133,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="heading" style="font-size: 22px">CƯỚI HỎI</h3>
-                            <p style="font-size: 20px">Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra những trải nghiệm sâu sắc
+                            <p style="font-size: 20px">Không gian tiệc cưới thật đẹp với vòng hoa và lễ đường, để tạo ra
+                                những trải nghiệm sâu sắc
                                 khó quên nhất.</p>
                         </div>
                     </div>
@@ -153,7 +146,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="heading" style="font-size: 22px">SINH NHẬT - THÔI NÔI</h3>
-                            <p style="font-size: 20px">Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé, cho gia đình và các cặp
+                            <p style="font-size: 20px">Không gian ấm cúng phù hợp cho những tiệc sinh nhật dành cho các bé,
+                                cho gia đình và các cặp
                                 đôi.</p>
                         </div>
                     </div>
@@ -164,7 +158,8 @@
                                 class="flaticon-pizza-1"></span></div>
                         <div class="media-body">
                             <h3 class="heading" style="font-size: 22px">TIỆC THEO CHỦ ĐỀ</h3>
-                            <p style="font-size: 20px">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước đó thành một không gian
+                            <p style="font-size: 20px">Hãy nói lên ý tưởng của bạn, The Rice Bowl sẽ hiện thực hóa điều ước
+                                đó thành một không gian
                                 tuyệt đẹp.</p>
                         </div>
                     </div>
@@ -348,7 +343,7 @@
                 </div>
             </div>
         </section>
-
+        @if ($statusReview == 1)
         <section class="ftco-section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -363,12 +358,11 @@
                                 <p style="font-size: 16px; text-align:left">{{ $eva->createdDate }}</p>
                                 <p style="font-size: 20px; text-align:left; color: rgb(255, 252, 225)">{{ $eva->content }}</p>
                             </div>
-                        </div>
                         @endforeach
                         <div class="d-flex justify-content-center">
                             {{ $list_evas->links() }}
                         </div>
-                        <form action="{{route('send_comment')}}" method="post">
+                        <form action="{{ route('send_comment') }}" method="post">
                             @csrf
                             <div class="form-group shadow-textarea">
                                 <h2 for="exampleFormControlTextarea1" style="margin-top: 30px; color: #FEB700">NHẬP ĐÁNH GIÁ CỦA BẠN:</h2>
@@ -380,10 +374,14 @@
                                         <a id="star-1" class="star">
                                             <span class="glyphicon glyphicon-star"></span>
                                         </a>
-                                        <a id="star-2" class="star"><span class="glyphicon glyphicon-star"></span></a>
-                                        <a id="star-3" class="star"><span class="glyphicon glyphicon-star"></span></a>
-                                        <a id="star-4" class="star"><span class="glyphicon glyphicon-star"></span></a>
-                                        <a id="star-5" class="star"><span class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-2" class="star"><span
+                                                class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-3" class="star"><span
+                                                class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-4" class="star"><span
+                                                class="glyphicon glyphicon-star"></span></a>
+                                        <a id="star-5" class="star"><span
+                                                class="glyphicon glyphicon-star"></span></a>
                                         <input type="hidden" name="numberStar" id="numberStar">
                                     </div>
                                     <div class="clearfix"></div>
@@ -393,11 +391,15 @@
                             <div id="notify_comment"></div>
                         </form>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </section>
+        @else
+            
+        @endif
+        
 
         <section class="ftco-appointment">
             <div class="overlay"></div>
@@ -411,7 +413,8 @@
                         <form action="#" class="appointment-form">
                             <div class="d-md-flex">
                                 <div class="form-group">
-                                    <input style="text-size: 20px" type="text" class="form-control" placeholder="Họ và tên">
+                                    <input style="text-size: 20px" type="text" class="form-control"
+                                        placeholder="Họ và tên">
                                 </div>
                             </div>
                             <div class="d-me-flex">
@@ -433,61 +436,63 @@
         </section>
     @endsection
     @section('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            /*
-              * Hiệu ứng khi rê chuột lên ngôi sao
-              */
-            $('a.star').mouseenter(function() {
-                if ($('#cate-rating').hasClass('rating-ok') == false) {
-                    var eID = $(this).attr('id');
-                    eID = eID.split('-').splice(-1);
-                    $('a.star').removeClass('vote-active');
-                    for (var i = 1; i <= eID; i++) {
-                        $('#star-' + i + ' span').addClass('vote-hover');
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                /*
+                 * Hiệu ứng khi rê chuột lên ngôi sao
+                 */
+                $('a.star').mouseenter(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        var eID = $(this).attr('id');
+                        eID = eID.split('-').splice(-1);
+                        $('a.star').removeClass('vote-active');
+                        for (var i = 1; i <= eID; i++) {
+                            $('#star-' + i + ' span').addClass('vote-hover');
+                        }
                     }
-                }
-            }).mouseleave(function() {
-                if ($('#cate-rating').hasClass('rating-ok') == false) {
-                    $('span').removeClass('vote-hover');
-                }
-            });
-    
-            /*
-             * Sự kiện khi cho điểm
-             */
-            $('a.star').click(function() {
-                if ($('#cate-rating').hasClass('rating-ok') == false) {
-                    var eID = $(this).attr('id');
-                    eID = eID.split('-').splice(-1).toString();
-                    for (var i = 1; i <= eID; i++) {
-                        $('#star-' + i).addClass('vote-active');
+                }).mouseleave(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        $('span').removeClass('vote-hover');
                     }
-                    //$('p#vote-desc').html('<span class="blue">' + eID + '</span>');
-                    $('#numberStar').val(eID);
-                    $('#cate-rating').addClass('rating-ok');
-                }
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.send-comment').click(function(){
-                var numberStar =  $('#numberStar').val();
-                var comment_content = $('.comment_content').val();
-                //var _token = $('input[name="_token"]').val();
-                $.ajax({
-                    url:"{{route('send_comment')}}",
-                    method: "POST",
-                    data:{comment_content:comment_content, numberStar:numberStar},
-                    success:function(data){
-                        $('#notifiy_comment').html('<p class="text text-success">Thêm bình luận thành công!</p>')
-                    }
-                })
-            })
-        });
-    
-    </script>
-    @endsection
+                });
 
+                /*
+                 * Sự kiện khi cho điểm
+                 */
+                $('a.star').click(function() {
+                    if ($('#cate-rating').hasClass('rating-ok') == false) {
+                        var eID = $(this).attr('id');
+                        eID = eID.split('-').splice(-1).toString();
+                        for (var i = 1; i <= eID; i++) {
+                            $('#star-' + i).addClass('vote-active');
+                        }
+                        //$('p#vote-desc').html('<span class="blue">' + eID + '</span>');
+                        $('#numberStar').val(eID);
+                        $('#cate-rating').addClass('rating-ok');
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.send-comment').click(function() {
+                    var numberStar = $('#numberStar').val();
+                    var comment_content = $('.comment_content').val();
+                    //var _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url: "{{ route('send_comment') }}",
+                        method: "POST",
+                        data: {
+                            comment_content: comment_content,
+                            numberStar: numberStar
+                        },
+                        success: function(data) {
+                            $('#notifiy_comment').html(
+                                '<p class="text text-success">Thêm bình luận thành công!</p>')
+                        }
+                    })
+                })
+            });
+        </script>
+    @endsection

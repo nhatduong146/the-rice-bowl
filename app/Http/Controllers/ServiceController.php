@@ -27,6 +27,12 @@ class ServiceController extends Controller
         return view('service')->with('services', $services);
     }
 
+    public function listOfService()
+    {
+        $services = Service::paginate(6);
+        return view('admin.service_ui.servicesList')->with('services', $services);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +40,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service_ui.addService');
     }
 
     /**
@@ -45,7 +51,15 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'name' => 'required',
+        //     'detail' => 'required',
+        // ]);
+
+        $service = $request->all();
+        Service::create($service);
+
+        return redirect('/admin/service/list')->with('status', 'Thêm mới thành công!');
     }
 
     /**
@@ -107,7 +121,10 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+        // điều hướng đến view edit user và truyền sang dữ liệu về user muốn sửa đổi
+        return view('admin.service_ui.updateService', compact('service'));
     }
 
     /**
@@ -119,7 +136,13 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+        $data = $request->all();
+
+        $service->update($data);
+
+        return redirect('/admin/service/list')->with('status', 'Cập nhật thành công!');;
     }
 
     /**
@@ -128,8 +151,12 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $service = Service::findOrFail($id);
+
+        $service->delete();
+
+        return redirect('/admin/service/list')->with('status', 'Xóa thành công!');;
     }
 }

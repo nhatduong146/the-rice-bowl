@@ -9,6 +9,7 @@ use App\Models\PackageCriteria;
 use App\Models\Criteria;
 use App\Models\Food;
 use App\Models\MenuFood;
+use App\Models\Service;
 
 class PackageController extends Controller
 {
@@ -19,6 +20,13 @@ class PackageController extends Controller
      */
     public function index()
     {
+        $packages = Package::paginate(6);
+
+        foreach ($packages as $package) {
+            $package->service = Service::findOrFail($package->id);
+        }
+
+        return view('admin.package_ui.packageList')->with('packages', $packages);
     }
 
     /**
@@ -117,6 +125,4 @@ class PackageController extends Controller
 
         return view('offerDetail')->with('package', $package);
     }
-
-    
 }

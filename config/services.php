@@ -30,9 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'facebook' => [
-        'client_id' => '452643573261693',  //client face của bạn
-        'client_secret' => 'ed2f673df1cf861d4ca1067f2d0bd730',  //client app service face của bạn
-        'redirect' => 'http://localhost/the-rice-bowl/login/callback' //callback trả về
+        'client_id' => '504192877678875', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'client_secret' => '4913b265c0b868003e5ef762179b39b9', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+        'redirect' => 'https://localhost/khoa/the-rice-bowl/callback/facebook'
     ],
 
 
