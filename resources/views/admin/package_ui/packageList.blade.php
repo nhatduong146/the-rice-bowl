@@ -8,7 +8,7 @@
     <div class="right_col row content" role="main">
         <div class="x_content col-11" style="margin-left: 20px">
 
-            <h3>Danh sách dịch vụ</h3>
+            <h3>Danh sách gói ưu đãi</h3>
 
             <div class="status">
                 @if (session('status'))
@@ -23,8 +23,10 @@
                     <thead>
                         <tr class="headings">
                             <th>STT</th>
-                            <th class="column-title">TÊN DỊCH VỤ </th>
-                            <th class="column-title">CHI TIẾT DỊCH VỤ </th>
+                            <th class="column-title">Tên gói ưu đãi </th>
+                            {{-- <th class="column-title">Chi tiết </th> --}}
+                            <th class="column-title">Dịch vụ </th>
+                            <th class="column-title">Giá</th>
                             <th class="column-title no-link last">
                                 <span class="nobr">ACTION</span>
                             </th>
@@ -36,16 +38,18 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($services as $service)
+                        @foreach ($packages as $package)
                             <tr class="even pointer">
-                                <th>{{ $service->id }}</th>
-                                <th>{{ $service->name }}</th>
-                                <th style="width: 60%">{{ $service->detail }}</th>
+                                <th>{{ $package->id }}</th>
+                                <th>{{ $package->content }}</th>
+                                {{-- <th>{{ $package->detail }}</th> --}}
+                                <th>{{ $package->service->name }}</th>
+                                <th>{{ number_format($package->price, 0) }} đ</th>
                                 <th>
-                                    <a href="{{ url('admin/service/update', ['id' => $service->id]) }}"><i
+                                    <a href="{{ url('admin/package/update', ['id' => $package->id]) }}"><i
                                             class="fa fa-edit"></i></a>
-                                    <a href="{{ url('admin/service/delete', ['id' => $service->id]) }}">
-                                        <i class="   fa fa-remove"></i>
+                                    <a href="{{ url('admin/package/delete', ['id' => $package->id]) }}">
+                                        <i class="fa fa-remove"></i>
                                     </a>
                                 </th>
                             </tr>
@@ -56,7 +60,7 @@
                 </table>
 
                 <div class="d-flex justify-content-center">
-                    {{ $services->links() }}
+                    {{ $packages->links() }}
                 </div>
             </div>
         </div>

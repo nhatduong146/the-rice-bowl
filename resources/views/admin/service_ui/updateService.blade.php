@@ -8,7 +8,7 @@
     <div class="right_col row content" role="main" style="min-height: 0px !important">
         <div class="col-12">
             <h2 style="font-size: 30px !important; margin-bottom: 40px;">Thêm mới dịch vụ</h2>
-            <form class="needs-validation" action="{{ url('/admin/service/update', ['id' => $service->id]) }}) }}"
+            <form class="needs-validation" action="{{ url('/admin/service/update', ['id' => $service->id]) }}"
                 method="post" novalidate style="width: 100%;">
                 @csrf
                 <div class="field item form-group">

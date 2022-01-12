@@ -14,6 +14,8 @@ class Restaurant extends Model
         'openedTime',
         'closedTime',
         'houseNumber',
-        'street'
+        'street',
+        'food_banner',
+        'menu_banner'
     ];
 }

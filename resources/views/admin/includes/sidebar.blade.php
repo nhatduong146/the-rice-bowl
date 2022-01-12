@@ -34,7 +34,7 @@
                     <li><a><i class="fa fa-book"></i> Thông tin nhà hàng <span
                                 class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Dashboard</a></li>
+                            <li><a href="{{ url('admin/information') }}">Thông tin</a></li>
                         </ul>
                     </li>
 
@@ -47,8 +47,7 @@
 
                     <li><a><i class="fa fa-gift"></i> Gói ưu đãi <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Danh sách gói ưu đãi</a></li>
-                            <li><a href="index.html">Thêm gói ưu đãi</a></li>
+                            <li><a href="{{ url('/admin/package/list') }}">Danh sách gói ưu đãi</a></li>
                         </ul>
                     </li>
 
@@ -61,7 +60,7 @@
 
                     <li><a><i class="fa fa-building-o"></i> Thực đơn <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{URL::to('/admin/menuManagement')}}">Quản lý thực đơn</a></li>
+                            <li><a href="{{ URL::to('/admin/menuManagement') }}">Quản lý thực đơn</a></li>
                             {{-- <li><a href="index.html">Thêm món ăn</a></li> --}}
                         </ul>
                     </li>
@@ -75,7 +74,7 @@
 
                     <li><a><i class="fa fa-group"></i> Thành viên <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{URL::to('/admin/accountManagement')}}">Quản lý thành viên</a></li>
+                            <li><a href="{{ URL::to('/admin/accountManagement') }}">Quản lý thành viên</a></li>
                         </ul>
                     </li>
 

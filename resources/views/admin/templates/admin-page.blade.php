@@ -68,7 +68,6 @@
 
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('public/front-end/admin/build/js/custom.min.js') }}"></script>
-    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
     @yield('js')
 </body>

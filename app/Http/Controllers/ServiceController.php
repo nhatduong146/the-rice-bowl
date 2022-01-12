@@ -29,7 +29,7 @@ class ServiceController extends Controller
 
     public function listOfService()
     {
-        $services = Service::all();
+        $services = Service::paginate(6);
         return view('admin.service_ui.servicesList')->with('services', $services);
     }
 
@@ -59,7 +59,7 @@ class ServiceController extends Controller
         $service = $request->all();
         Service::create($service);
 
-        return redirect('/admin/service/list');
+        return redirect('/admin/service/list')->with('status', 'Thêm mới thành công!');
     }
 
     /**
@@ -142,7 +142,7 @@ class ServiceController extends Controller
 
         $service->update($data);
 
-        return redirect('/admin/service/list');
+        return redirect('/admin/service/list')->with('status', 'Cập nhật thành công!');;
     }
 
     /**
@@ -157,6 +157,6 @@ class ServiceController extends Controller
 
         $service->delete();
 
-        return redirect('/admin/service/list');
+        return redirect('/admin/service/list')->with('status', 'Xóa thành công!');;
     }
 }

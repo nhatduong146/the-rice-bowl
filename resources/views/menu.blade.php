@@ -7,10 +7,9 @@
 
 @section('content')
 
-    <section class="home-slider owl-carousel img"
-        style="background-image: url({{ asset('public/front-end/images/menu-back.jpg') }});">
+    <section class="home-slider owl-carousel img" style="background-image: url({{ asset($restaurant->menu_banner) }});">
 
-        <div class="slider-item" style="background-image: url({{ asset('public/front-end/images/menu-back.jpg') }});">
+        <div class="slider-item" style="background-image: url({{ asset($restaurant->menu_banner) }});">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center">

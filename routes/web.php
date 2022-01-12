@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\HomeController;
 use RealRashid\SweetAlert\Facades\Alert;
 /*
 |--------------------------------------------------------------------------
@@ -131,6 +132,8 @@ Route::get('/admin/tables-dynamic', function () {
     return view('admin.tables_dynamic');
 });
 
+
+
 Route::get('/order-create', 'OrderController@backToHomePage');
 
 Route::get('/evaluate', 'EvaluateController@index')->name('list_evaluate');
@@ -148,6 +151,7 @@ Route::post('/init-session', 'FoodController@initSession')->name('initSession');
 Route::get('/update-menu', 'FoodController@updateMenu')->name('updateMenu');
 
 
+//service management
 Route::get('admin/service/list', 'ServiceController@listOfService');
 
 Route::get('/admin/service/add', 'ServiceController@create');
@@ -185,3 +189,11 @@ Route::get('/admin/orderManagement', 'Admin\OrderController@index')->name('order
 Route::get('/admin/confirmOrder/{id}', 'Admin\OrderController@viewDetail');
 
 Route::post('/admin/confirmOrder/{id}', 'Admin\OrderController@confirmOrder');
+
+//package management
+Route::get('admin/package/list', 'PackageController@index');
+
+//information restaurant
+Route::get('admin/information', 'HomeController@show');
+
+Route::post('admin/information/update/{id}', 'HomeController@update');
