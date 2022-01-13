@@ -75,7 +75,7 @@
                         <p>Đến ngày:</p> <input type="text" id="datepicker2" class="date form-control" name="to_date">
                     </div>
                     <div class="col-md-2">
-                        <input type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm mt-3" value="Lọc kết quả" >
+                        <input style="margin-top: 40px !important" type="button" id="btn-dashboard-filter" class="btn btn-primary btn-sm mt-3" value="Lọc kết quả" >
                     </div>
                     <div class="col-md-12">
                         <div id="chart" style="height: 250px;"></div>
@@ -97,29 +97,8 @@
                     </select>
                     <div class="col-md-12">
                         <div id="chart1" style="height: 250px;"></div>
-                    </div>
-                                        
+                    </div>          
                 </form>
-                {{-- <div class="dashboard_graph">
-                    <div class="row x_title">
-                        <div class="col-md-6">
-                            <h3>THỐNG KÊ <small>đơn đặt hàng theo dịch vụ</small></h3>
-                        </div>
-                    </div>
-                    <div class="dropdown show">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            L
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </div>
-                    <div class="col-md-12">
-                        <div id="chart1" style="height: 250px;"></div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </div>

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>The Rice Bowl </title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('public/front-end/admin/vendors/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">

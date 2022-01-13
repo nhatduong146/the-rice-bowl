@@ -9,7 +9,7 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/admin/images/ava2.jpg') }}" alt="..."
+                <img src="{{ asset('public/front-end/images/ava2.jpg') }}" alt="..."
                     class="img-circle profile_img">
             </div>
             <div class="profile_info">
@@ -26,9 +26,9 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Trang chủ<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-home"></i> Thống kê<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="index.html">Dashboard</a></li>
+                            <li><a href="{{ url('admin/home') }}">Dashboard</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-book"></i> Thông tin nhà hàng <span
@@ -76,15 +76,6 @@
                         <ul class="nav child_menu">
                             <li><a href="{{ URL::to('/admin/accountManagement') }}">Quản lý thành viên</a></li>
                         </ul>
-                    </li>
-
-                    <li><a><i class="fa fa-bar-chart"></i> Thống kê <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="index.html">Doanh thu</a></li>
-                            <li><a href="index.html">Đơn hàng</a></li>
-                            <li><a href="index.html">Dịch vụ</a></li>
-                        </ul>
-
                     </li>
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
