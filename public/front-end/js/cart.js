@@ -1,13 +1,4 @@
 $(document).ready(function() {
-  // $('#btn-back-homepage').click(function() {
-  //     $.ajax({
-  //         url: '{{ URL::to('/order-create') }}',
-  //         method: 'GET',
-  //         success: function(data) {
-  //             echo "Success";
-  //         }
-  //     })
-  // })
   var totalCost = document.getElementById('vnd_to_usd').value;
   paypal.Button.render({
       // Configure environment
@@ -58,21 +49,4 @@ $(document).ready(function() {
           $('#paypal-button').css("display", "none");
       }
   })
-
-  // $('#btn-confirm-payment').on('click', function(e) {
-  //     e.preventDefault();
-  //     // var orderId = $order->id;
-  //     console.log(orderId);
-  //     var _token = $('input[name=_token]').val();
-  //     $.ajax({
-  //         url: "{{route('updateStatus')}}",
-  //         method: 'POST',
-  //         data: {
-  //             _token: _token
-  //         },
-  //         success: function(data) {
-
-  //         }
-  //     })
-  // })
 })

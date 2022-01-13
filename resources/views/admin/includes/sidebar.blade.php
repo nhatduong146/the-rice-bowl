@@ -77,34 +77,36 @@
                             <li><a href="{{ URL::to('/admin/accountManagement') }}">Quản lý thành viên</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/form') }}" class="nav-link">Form</a></li>
-                            <li><a href="{{ url('admin/form-advanced') }}" class="nav-link">Advanced
-                                    Components</a>
-                            </li>
-                            <li><a href="{{ url('admin/form-validation') }}" class="nav-link">Form
-                                    Validation</a></li>
-                            <li><a href="{{ url('admin/form-wizards') }}" class="nav-link">Form Wizard</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/icons') }}" class="nav-link">Icons</a></li>
-                            <li><a href="{{ url('admin/glyphicons') }}" class="nav-link">Glyphicons</a></li>
-                            <li><a href="{{ url('admin/invoice') }}" class="nav-link">Invoice</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('admin/tables') }}" class="nav-link">Tables</a></li>
-                            <li><a href="{{ url('admin/tables-dynamic') }}" class="nav-link">Table Dynamic</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <div style="display: none">
+                        <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{ url('admin/form') }}" class="nav-link">Form</a></li>
+                                <li><a href="{{ url('admin/form-advanced') }}" class="nav-link">Advanced
+                                        Components</a>
+                                </li>
+                                <li><a href="{{ url('admin/form-validation') }}" class="nav-link">Form
+                                        Validation</a></li>
+                                <li><a href="{{ url('admin/form-wizards') }}" class="nav-link">Form Wizard</a></li>
+                            </ul>
+                        </li>
+                        <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{ url('admin/icons') }}" class="nav-link">Icons</a></li>
+                                <li><a href="{{ url('admin/glyphicons') }}" class="nav-link">Glyphicons</a></li>
+                                <li><a href="{{ url('admin/invoice') }}" class="nav-link">Invoice</a></li>
+                            </ul>
+                        </li>
+                        <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="{{ url('admin/tables') }}" class="nav-link">Tables</a></li>
+                                <li><a href="{{ url('admin/tables-dynamic') }}" class="nav-link">Table Dynamic</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
                 </ul>
             </div>
-            <div class="menu_section">
+            <div class="menu_section" style="display: none">
                 <h3>Live On</h3>
                 <ul class="nav side-menu">
                     <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>

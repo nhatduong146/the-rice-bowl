@@ -21,7 +21,8 @@ class FoodController extends Controller
         foreach($foods as $food) {
             $food->category = FoodCategory::where('id', $food->category_id)->first();
         }
-        return view('admin.food.index')->with('foods', $foods);
+        $i = 0;
+        return view('admin.food.index')->with('foods', $foods)->with('i', $i);
     }
 
     /**

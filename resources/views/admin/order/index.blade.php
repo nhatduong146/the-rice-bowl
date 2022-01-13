@@ -67,7 +67,7 @@
 @section('content')
     <div class="right_col" role="main" style="min-height: 1000px">
       <div class="col-12">
-        <h1>QUẢN LÝ ĐƠN HÀNG</h1>
+        <h1 class="text-center">QUẢN LÝ ĐƠN HÀNG</h1>
         <ul class="nav nav-tabs nav-tab tabs d-flex text-center col-12" style="background: #eaeaea"> 
             <li class="tab-item active col-6"><a data-toggle="tab" href="#tab-9-3" data-case="HDLocal">Đơn hàng chờ duyệt</a></li>
             <li class="tab-item col-6"><a data-toggle="tab" href="#tab-9-1" data-case="HDPassenger">Đơn hàng đã duyệt</a></li>
@@ -170,7 +170,7 @@
                         </table>
 
                         <div class="d-flex justify-content-center">
-                            {{-- {{ $accountUsers->links() }} --}}
+                            {{ $approvedOrders->links() }}
                         </div>
                     </div>
     

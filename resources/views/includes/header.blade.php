@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light m-0 p-4" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html"><span class="flaticon-pizza-1 mr-1"></span>The Rice
+        <a class="navbar-brand" href="{{route('home')}}"><span class="flaticon-pizza-1 mr-1"></span>The Rice
             Bowl<br><small>Restaurant</small></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">

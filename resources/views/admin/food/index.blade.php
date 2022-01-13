@@ -43,7 +43,7 @@
                       
                       @foreach ($foods as $food)
                           <tr class="even pointer">
-                              <td class="align-items-center ">{{ $food->id }}</td>
+                              <td class="align-items-center ">{{ ++$i }}</td>
                               <td class="align-items-center ">{{ $food->name }}</td>
                               <td class="align-items-center ">{{ number_format($food->price, 0) }} đ</td>
                               <td class="align-items-center ">
@@ -51,9 +51,9 @@
                               </td>
                               <td class="align-items-center ">{{ $food->category->name }}</td>
                               <td class=" last">
-                                <a href="{{ URL::to('/edit-food/'.$food->id) }}" class="btn btn-warning" 
+                                <a href="{{ URL::to('/admin/edit-food/'.$food->id) }}" class="btn btn-warning" 
                                 >Sửa</a>
-                                <a href="{{ URL::to('/delete-food/'.$food->id) }}" class="btn btn-danger" id="btn-view-order"
+                                <a href="{{ URL::to('/admin/delete-food/'.$food->id) }}" class="btn btn-danger" id="btn-view-order"
                                 >Xóa</a>
                               </td>
                           </tr>

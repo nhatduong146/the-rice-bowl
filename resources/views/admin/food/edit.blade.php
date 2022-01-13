@@ -20,7 +20,7 @@
               </h4>
             </div>
             <div class="card-body" style="font-size: 20px">
-              <form action="{{ URL::to('/update-food/'.$food->id) }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ URL::to('/admin/update-food/'.$food->id) }}" method="POST" enctype="multipart/form-data">
                   
                   @csrf
                   <div class="form-group">

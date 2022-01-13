@@ -27,7 +27,8 @@ class OrderController extends Controller
         }
 
         $approvedOrders = Order::where('status', 2)->orWhere('status', 4)
-                                ->get();
+                                ->orderBy('created_at', 'DESC')
+                                ->paginate(7);
         foreach($approvedOrders as $approvedOrder) {
             $approvedOrder->order_status = OrderStatus::where('id', $approvedOrder->status)->first();
             $approvedOrder->services = Service::where('id', $approvedOrder->serviceId)->first();
