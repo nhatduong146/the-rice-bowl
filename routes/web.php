@@ -193,3 +193,10 @@ Route::get('admin/package/list', 'PackageController@index');
 Route::get('admin/information', 'HomeController@show');
 
 Route::post('admin/information/update/{id}', 'HomeController@update');
+
+
+//Statistic
+Route::post('/filter-by-date', 'AdminController@filter_by_date');
+Route::post('/filter-by-date1', 'AdminController@filter_by_date1');
+// Route::get('/filter-by-date1', 'AdminController@filter_by_date1');
+// Route::get('/home', 'AdminController@dashboard');

@@ -1,7 +1,7 @@
 <div class="col-md-3 left_col menu_fixed">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>The Rice Bowl</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -9,12 +9,12 @@
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{ asset('public/front-end/admin/images/img.jpg') }}" alt="..."
+                <img src="{{ asset('public/front-end/admin/images/ava2.jpg') }}" alt="..."
                     class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span>Xin chào,</span>
-                <h2>Thúy Hằng</h2>
+                <h2>Admin</h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
