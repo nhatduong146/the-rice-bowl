@@ -3,21 +3,27 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('public/css/app.css?v=') . time() }}">
     <script src="{{ asset('public/js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 @endsection
 
 @section('content')
-<style>
-    .fb {
-        background-color: #3B5998;
-        color: white;
-}.twitter {
-        background-color: #55ACEE;
-        color: white;
-}.google {
-    background-color: #dd4b39;
-    color: white;
-    }
-</style>
+    <style>
+        .fb {
+            background-color: #3B5998;
+            color: white;
+        }
+
+        .twitter {
+            background-color: #55ACEE;
+            color: white;
+        }
+
+        .google {
+            background-color: #dd4b39;
+            color: white;
+        }
+
+    </style>
     <div class="container-fluid">
         <div class="row">
             <div id="back">
@@ -127,19 +133,25 @@
                                     ký</button>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                  <a href="{{URL::to('/auth/redirect/facebook')}}" class="fb btn">
-                                    <i class="fa fa-facebook fa-fw"></i> Đằng nhập bằng Facebook
-                                  </a>
-                                  <a href="#" class="google btn">
-                                    <i class="fa fa-google fa-fw"></i> Đăng nhập bằng Google
-                                  </a>
+                                <div class="col-12 row d-flex justify-content-center">
+                                    <p style="color: rgb(214, 214, 214)">Hoặc đăng nhập với</p>
+                                    <a href="{{ URL::to('/auth/redirect/facebook') }}"><i class="fab fa-facebook"
+                                            style="font-size: 43px; color: #0950a0;margin-left: 10px;background-color: #fff; border-radius: 100%"></i>
+                                    </a>
                                 </div>
+                                {{-- <div class="col">
+                                    <a href="{{ URL::to('/auth/redirect/facebook') }}" class="fb btn">
+                                        <i class="fa fa-facebook fa-fw"></i> Đằng nhập bằng Facebook
+                                    </a>
+                                    <a href="#" class="google btn">
+                                        <i class="fa fa-google fa-fw"></i> Đăng nhập bằng Google
+                                    </a>
+                                </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-@endsection
+    @endsection
